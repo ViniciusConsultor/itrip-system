@@ -1,0 +1,5 @@
+E:\WEB服务期末项目开发\URL Rewriting in ASP.NET\URLRewriter\bin\Debug\URLRewriter.dll
+E:\WEB服务期末项目开发\URL Rewriting in ASP.NET\URLRewriter\bin\Debug\URLRewriter.pdb
+E:\WEB服务期末项目开发\URL Rewriting in ASP.NET\URLRewriter\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\URL Rewriting in ASP.NET\URLRewriter\obj\Debug\URLRewriter.dll
+E:\WEB服务期末项目开发\URL Rewriting in ASP.NET\URLRewriter\obj\Debug\URLRewriter.pdb
