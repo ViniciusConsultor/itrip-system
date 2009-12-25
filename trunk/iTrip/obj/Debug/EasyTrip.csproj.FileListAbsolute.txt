@@ -1,0 +1,5 @@
+E:\WEB服务期末项目开发\TravelOSys\EasyTrip\bin\EasyTrip.dll
+E:\WEB服务期末项目开发\TravelOSys\EasyTrip\bin\EasyTrip.pdb
+E:\WEB服务期末项目开发\TravelOSys\EasyTrip\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\TravelOSys\EasyTrip\obj\Debug\EasyTrip.dll
+E:\WEB服务期末项目开发\TravelOSys\EasyTrip\obj\Debug\EasyTrip.pdb

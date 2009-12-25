@@ -1,0 +1,10 @@
+E:\WEB服务期末项目开发\iTravel\iTravel\bin\iTrip.WS.dll
+E:\WEB服务期末项目开发\iTravel\iTravel\bin\iTrip.WS.pdb
+E:\WEB服务期末项目开发\iTravel\WS\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\iTravel\WS\obj\Debug\iTrip.WS.dll
+E:\WEB服务期末项目开发\iTravel\WS\obj\Debug\iTrip.WS.pdb
+E:\WEB服务期末项目开发\iTrip\iTrip\bin\iTrip.WS.dll
+E:\WEB服务期末项目开发\iTrip\iTrip\bin\iTrip.WS.pdb
+E:\WEB服务期末项目开发\iTrip\WS\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\iTrip\WS\obj\Debug\iTrip.WS.dll
+E:\WEB服务期末项目开发\iTrip\WS\obj\Debug\iTrip.WS.pdb
