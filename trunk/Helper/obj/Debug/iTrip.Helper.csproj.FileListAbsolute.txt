@@ -1,5 +1,0 @@
-E:\WEB服务期末项目开发\iTrip\iTrip\bin\iTrip.Helper.dll
-E:\WEB服务期末项目开发\iTrip\iTrip\bin\iTrip.Helper.pdb
-E:\WEB服务期末项目开发\iTrip\Helper\obj\Debug\ResolveAssemblyReference.cache
-E:\WEB服务期末项目开发\iTrip\Helper\obj\Debug\iTrip.Helper.dll
-E:\WEB服务期末项目开发\iTrip\Helper\obj\Debug\iTrip.Helper.pdb
