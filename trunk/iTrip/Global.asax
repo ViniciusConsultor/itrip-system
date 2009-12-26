@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="RewriterTester.Global" %>
+<%@ Application Codebehind="Global.asax.cs" Inherits="iTrip.Global" %>
