@@ -53,5 +53,20 @@ namespace iTrip.UserLogin
 			if (UserName.Text == "scott" && Password.Text == "password")
 				FormsAuthentication.RedirectFromLoginPage(UserName.Text, false);
 		}
+
+        protected void btnSubmit_Click1(object sender, EventArgs e)
+        {
+            ServiceReference1.Service1SoapClient aa = new iTrip.ServiceReference1.Service1SoapClient();
+            bool result=aa.ValidateUser(UserName.Text, Password.Text);
+            if (result)
+            {
+                Response.Write("<script>alert('µÇÂ¼³É¹¦£¡');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('µÇÂ¼Ê§°Ü£¡');</script>");
+                
+            }
+        }
 	}
 }
