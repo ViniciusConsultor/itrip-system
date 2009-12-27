@@ -249,5 +249,96 @@ namespace iTrip.DAL
 	            cmd.Parameters.Add(parm);
             }
         }
+
+        /// <summary>
+        /// 判断记录是否存在
+        /// </summary>
+        /// <param name="strSql">SQL语句</param>
+        /// <returns>存在：true；不存在：false</returns>
+        public static bool Exists(OleDbConnection conn, string cmdText)
+        {
+            //判断连接的状态。如果是关闭状态，则打开
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+
+                OleDbCommand cmd = new OleDbCommand();
+            try
+            {            
+                PrepareCommand(cmd, conn, null, cmdText, null);
+
+                object obj = cmd.ExecuteScalar();
+                if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
+                {
+                    return false;
+                }
+                else
+                {
+                    int cmdresult = int.Parse(obj.ToString());
+                    if (cmdresult == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (OleDbException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// 判断记录是否存在
+        /// </summary>
+        /// <param name="OracleStatement">SQL 语句</param>
+        /// <param name="prams">参数集</param>
+        /// <returns>存在：true；不存在：false</returns>
+        public static bool Exists(OleDbConnection conn, string cmdText, params OleDbParameter[] commandParameters)
+        {
+            //判断连接的状态。如果是关闭状态，则打开
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+           
+            OleDbCommand cmd = new OleDbCommand();
+            try
+            {
+                PrepareCommand(cmd, conn, null, cmdText, commandParameters);
+                object obj = cmd.ExecuteScalar();
+                if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
+                {
+                    return false;
+                }
+                else
+                {
+                    int cmdresult = int.Parse(obj.ToString());
+                    if (cmdresult == 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (OleDbException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                conn.Close();
+            }
+        }
     }
 }
