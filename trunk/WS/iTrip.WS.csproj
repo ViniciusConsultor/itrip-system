@@ -53,15 +53,20 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="iService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="iService.asmx.cs">
-      <DependentUpon>iService.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\iTrip.BLL.csproj">
+      <Project>{043216B6-8ECE-4733-AD43-06F49A956D03}</Project>
+      <Name>iTrip.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTrip.Singleton\iTrip.Singleton.csproj">
+      <Project>{F4513665-40EA-4CA9-A2F1-84D4F213F902}</Project>
+      <Name>iTrip.Singleton</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
