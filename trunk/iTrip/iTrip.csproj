@@ -55,32 +55,40 @@
     <Reference Include="UrlRewriter, Version=1.0.1495.18710, Culture=neutral" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="BasePage\BasePage.aspx" />
+    <Content Include="Ccs\indexStyle.css" />
+    <Content Include="SignIn\Logon.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="web\index.aspx" />
-    <Content Include="web\new.aspx" />
-    <Content Include="web\zhangyi.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="BaseMaster.Master.cs">
+      <DependentUpon>BaseMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="BaseMaster.Master.designer.cs">
+      <DependentUpon>BaseMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="BasePage\BasePage.aspx.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasePage\BasePage.aspx.designer.cs">
+      <DependentUpon>BasePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn\Logon.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Logon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn\Logon.aspx.designer.cs">
+      <DependentUpon>Logon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BaseMaster.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
