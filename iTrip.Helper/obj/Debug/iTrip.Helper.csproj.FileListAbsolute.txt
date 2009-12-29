@@ -1,0 +1,7 @@
+E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Helper.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Helper.pdb
+E:\workspace\google-svn\iTrip\trunk\Helper\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\google-svn\iTrip\trunk\Helper\obj\Debug\iTrip.Helper.dll
+E:\workspace\google-svn\iTrip\trunk\Helper\obj\Debug\iTrip.Helper.pdb
+E:\workspace\google-svn\iTrip\trunk\WS\bin\iTrip.Helper.dll
+E:\workspace\google-svn\iTrip\trunk\WS\bin\iTrip.Helper.pdb

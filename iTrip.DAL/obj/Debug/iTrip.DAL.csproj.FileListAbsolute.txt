@@ -1,0 +1,7 @@
+E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.DAL.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.DAL.pdb
+E:\workspace\google-svn\iTrip\trunk\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\google-svn\iTrip\trunk\DAL\obj\Debug\iTrip.DAL.dll
+E:\workspace\google-svn\iTrip\trunk\DAL\obj\Debug\iTrip.DAL.pdb
+E:\workspace\google-svn\iTrip\trunk\WS\bin\iTrip.DAL.dll
+E:\workspace\google-svn\iTrip\trunk\WS\bin\iTrip.DAL.pdb
