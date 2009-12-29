@@ -1,5 +1,0 @@
-E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Utility.dll
-E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Utility.pdb
-E:\workspace\google-svn\iTrip\trunk\Utility\obj\Debug\ResolveAssemblyReference.cache
-E:\workspace\google-svn\iTrip\trunk\Utility\obj\Debug\iTrip.Utility.dll
-E:\workspace\google-svn\iTrip\trunk\Utility\obj\Debug\iTrip.Utility.pdb
