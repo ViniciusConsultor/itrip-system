@@ -1,7 +1,0 @@
-E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTravel.BLL.dll
-E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTravel.BLL.pdb
-E:\workspace\google-svn\iTrip\trunk\BLL\obj\Debug\ResolveAssemblyReference.cache
-E:\workspace\google-svn\iTrip\trunk\BLL\obj\Debug\iTravel.BLL.dll
-E:\workspace\google-svn\iTrip\trunk\BLL\obj\Debug\iTravel.BLL.pdb
-E:\workspace\google-svn\iTrip\trunk\WS\bin\iTravel.BLL.dll
-E:\workspace\google-svn\iTrip\trunk\WS\bin\iTravel.BLL.pdb
