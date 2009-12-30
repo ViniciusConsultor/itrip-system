@@ -25,17 +25,13 @@ namespace iTrip.DAL
                };
                
                //数据库操作
-               string conn = AccessHelper.conn;
-               using (OleDbConnection connection = new OleDbConnection(conn))
+               if (AccessHelper.Exists(SqlBuilder.ToString(), parameter))
                {
-                   if (AccessHelper.Exists(connection, SqlBuilder.ToString(), parameter))
-                   {
-                       return true;
-                   }
-                   else
-                   {
-                       return false;
-                   }
+                   return true;
+               }
+               else
+               {
+                   return false;
                }
             }
             return false;
