@@ -32,7 +32,7 @@ namespace iTrip.UserLogin
             bool result = iWebService.ValidateUser(UserName.Text, Password.Text);
             if (result)
             {
-                Response.Write("<script>alert('µÇÂ¼³É¹¦£¡');</script>");
+                Response.Redirect("~/Main/OrderHotel.aspx", false);
             }
             else
             {
