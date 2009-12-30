@@ -73,10 +73,11 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Main\Index.aspx" />
     <Content Include="Main\Left.aspx" />
-    <Content Include="Main\WebForm1.aspx" />
-    <Content Include="resource\bg_mainbox091117.png" />
-    <Content Include="resource\navgations.png" />
+    <Content Include="Main\OrderHotel.aspx" />
+    <Content Include="Resource\bg_mainbox091117.png" />
+    <Content Include="Resource\navgations.png" />
     <Content Include="Userlogin\Login.aspx" />
     <Content Include="Userlogin\Logout.aspx" />
     <Content Include="Web.config" />
@@ -102,6 +103,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Main\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Left.aspx.cs">
       <DependentUpon>Left.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -109,12 +117,12 @@
     <Compile Include="Main\Left.aspx.designer.cs">
       <DependentUpon>Left.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Main\OrderHotel.aspx.cs">
+      <DependentUpon>OrderHotel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Main\OrderHotel.aspx.designer.cs">
+      <DependentUpon>OrderHotel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Service References\iWebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
