@@ -11,7 +11,7 @@ using System.Xml.Linq;
 namespace iTrip.WebService
 {
     /// <summary>
-    /// Service1 的摘要说明
+    /// iWebService 的摘要说明
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
