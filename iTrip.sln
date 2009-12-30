@@ -13,6 +13,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTrip.Singleton", "iTrip.Singleton\iTrip.Singleton.csproj", "{F4513665-40EA-4CA9-A2F1-84D4F213F902}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTrip.WebService", "iTrip.WebService\iTrip.WebService.csproj", "{422B8E6F-8D24-4DC9-97F2-A4219E7E1E51}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F4513665-40EA-4CA9-A2F1-84D4F213F902} = {F4513665-40EA-4CA9-A2F1-84D4F213F902}
+		{043216B6-8ECE-4733-AD43-06F49A956D03} = {043216B6-8ECE-4733-AD43-06F49A956D03}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTrip.Helper", "iTrip.Helper\iTrip.Helper.csproj", "{0E75051B-F5BE-48EA-8C20-87E35050B162}"
 EndProject
