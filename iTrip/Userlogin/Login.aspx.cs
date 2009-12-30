@@ -9,13 +9,14 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using iTrip;
 
 namespace iTrip.UserLogin
 {
 	/// <summary>
 	/// Summary description for Login.
 	/// </summary>
-	public class Login : System.Web.UI.Page
+	public class Login : BasePage
 	{
 		protected System.Web.UI.WebControls.TextBox UserName;
 		protected System.Web.UI.WebControls.TextBox Password;
@@ -28,8 +29,7 @@ namespace iTrip.UserLogin
 
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
-            iWebServiceReference.iWebServiceSoapClient aa = new iWebServiceReference.iWebServiceSoapClient();
-            bool result=aa.ValidateUser(UserName.Text, Password.Text);
+            bool result = iWebService.ValidateUser(UserName.Text, Password.Text);
             if (result)
             {
                 Response.Write("<script>alert('µÇÂ¼³É¹¦£¡');</script>");
