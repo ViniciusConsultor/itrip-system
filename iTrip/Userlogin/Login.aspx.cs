@@ -48,15 +48,9 @@ namespace iTrip.UserLogin
 		}
 		#endregion
 
-		private void btnSubmit_Click(object sender, System.EventArgs e)
-		{
-			if (UserName.Text == "scott" && Password.Text == "password")
-				FormsAuthentication.RedirectFromLoginPage(UserName.Text, false);
-		}
-
         protected void btnSubmit_Click1(object sender, EventArgs e)
         {
-            ServiceReference1.Service1SoapClient aa = new iTrip.ServiceReference1.Service1SoapClient();
+            iWebServiceReference.iWebServiceSoapClient aa = new iWebServiceReference.iWebServiceSoapClient();
             bool result=aa.ValidateUser(UserName.Text, Password.Text);
             if (result)
             {
