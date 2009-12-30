@@ -8,8 +8,8 @@
     <ProjectGuid>{043216B6-8ECE-4733-AD43-06F49A956D03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iTravel.BLL</RootNamespace>
-    <AssemblyName>iTravel.BLL</AssemblyName>
+    <RootNamespace>iTrip.BLL</RootNamespace>
+    <AssemblyName>iTrip.BLL</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,7 +49,7 @@
     <Compile Include="UsersBLL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\iTrip.DAL.csproj">
+    <ProjectReference Include="..\iTrip.DAL\iTrip.DAL.csproj">
       <Project>{2A947507-39BC-47F1-8022-0AC5D7010D08}</Project>
       <Name>iTrip.DAL</Name>
     </ProjectReference>
