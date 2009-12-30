@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Basepage/iTrip_Main.Master" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="iTrip.Main.WebForm1" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Basepage/iTrip_Main.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="iTrip.Main.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body1" runat="server">

@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace iTrip.Main
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class OrderHotel : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
