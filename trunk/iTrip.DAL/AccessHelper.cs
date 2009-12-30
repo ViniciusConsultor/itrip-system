@@ -17,7 +17,12 @@ namespace iTrip.DAL
     public static class AccessHelper
     {
         //数据库连接字符串
-        public static readonly string conn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + HttpContext.Current.Request.PhysicalApplicationPath + System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+        public static readonly string conn = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + HttpContext.Current.Request.PhysicalApplicationPath + "{0};Persist Security Info=False;Jet OLEDB:Database Password={1};", new string[]
+            {
+                ConfigurationManager.AppSettings["ConnectionString"].ToString(),
+                ConfigurationManager.AppSettings["Password"].ToString()
+            });
+
         // 用于缓存参数的HASH表
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
 
