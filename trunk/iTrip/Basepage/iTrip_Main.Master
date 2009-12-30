@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="iTrip_Main.master.cs" Inherits="iTrip.Basepage.iTrip_Main" %>
+<html>
+<head runat="server">
+    <!-- #include file="../BasePage/style.html" -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    <ul id="wrapper">
+<!-- head begin -->
+
+	<!-- InstanceBegin name="position" -->
+	<li id="hd">
+	<ul class="pagehead">
+		<li class="logo"><h1><a href="http://10.ctrip.com/" target="_blank" title="携程旅行网"><img src="http://pages.ctrip.com/homepage/image/logo.gif" alt="携程旅行网" width="156" height="50" /></a></h1></li>
+		<li>
+			<div class="submenu">
+				<div class="layoutfix">
+				
+				<a href="http://big5.ctrip.com" title="繁体版" class="submenu_big5"><span>繁体版</span></a>
+				
+				<a href="http://english.ctrip.com" title="English" class="submenu_english"><span>English</span></a></div>
+				<ul class="layoutfix">
+					
+						<li><a href="/member/login.asp" title="登录">登录</a></li>
+					
+						<li>┆</li>
+						<li><a href="/member/signup.asp" title="注册">注册</a></li>
+						<li>┆</li>
+						<li><a href="http://cards.ctrip.com"  title="合作卡">合作卡</a></li>
+				</ul>
+			</div>
+			<div id="adShow1" mod="adFrame" mod_adFrame_Src="home/show1.htm" mod_adFrame_style="width:468px;height:60px;" class="pagehead_pic"></div>
+		</li>
+	</ul>
+	<!-- navgations -->
+	<ul id="nav">
+		<li class="nav_left"></li>
+
+		<li class="nav_current"><a href="" title="首页"><span>首页</span></a></li>
+		<li><a href="http://hotels.ctrip.com" title="国内酒店"><span>国内酒店</span></a></li>
+		<li><span style="background:url(http://pic.ctrip.com/common/icon_new.png);width:19px;height:16px;position:absolute;margin:-6px 0 0 34px;*margin-top:-19px;"></span><a href="/supermarket/HotelIntl/HotelSearch.asp" title="海外酒店"><span>海外酒店</span></a></li>
+		<li><a href="http://flights.ctrip.com" title="国内机票"><span>国内机票</span></a></li>
+		<li><a href="http://flights.ctrip.com/international/" title="国际机票"><span>国际机票</span></a></li>
+		<li><a href="http://vacations.ctrip.com" title="度假"><span>度假</span></a></li>
+		<li><a href="/bestdeals/" title="特惠精选"><span>特惠精选</span></a></li>
+
+		<li><a href="/crptravel/" title="商旅管理"><span>商旅管理</span></a></li>
+		<li><a href="http://destguides.ctrip.com" title="目的地探索"><span>目的地探索</span></a></li>
+		<li><a href="/community/" title="社区"><span>社区</span></a></li>
+		<li style="background:none;"><a href="/merchant/" title="VIP特约商户"><span>VIP特约商户</span></a></li>
+		<li class="nav_right"></li>
+	</ul>
+
+	<!-- toolkit -->
+
+	<ul id="toolkit">
+		<li class="guide_help"><span class='toolkit_tel'>&nbsp;</span>800-820-6666<span class='toolkit_mobile'>&nbsp;</span>400-820-6666
+		<li class="toolkit_links">
+			<a href="http://hotels.ctrip.com/domestic/listorders.aspx" title="订单管理"><span>&nbsp;</span>订单管理</a>
+				<a href="/member/memberinfo.asp" title="个人信息"><span>&nbsp;</span>个人信息</a>
+				
+				<a href="/service/mileages/encash_index.asp" title="积分奖励"><span>&nbsp;</span>积分奖励</a>
+				
+				<a href="http://members.ctrip.com/" title="个人主页"><span>&nbsp;</span>个人主页</a>
+				
+				<a href="/customer/customer.asp?customer=faq" title="帮助中心"><span>&nbsp;</span>帮助中心</a>
+		</li>
+	</ul>
+</li>
+
+<!-- head end and body content begin -->
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table border="1" style="width:780px;height:100%;">
+            <tr style="height:40%;width:100%;">
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Menu ID="Menu1" runat="server" Height="100%" MaximumDynamicDisplayLevels="1" Width="100%">
+                        <Items>
+                            <asp:MenuItem Text="航班预订" NavigateUrl=""  Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="酒店预订" NavigateUrl=""  Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="个人信息" NavigateUrl=""  Target="_self" ></asp:MenuItem>
+                        </Items> 
+                    </asp:Menu>
+                </td>
+                <td>
+                <asp:ContentPlaceHolder ID="Body1" runat="server">
+                    
+                </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr style="height:15%;width:100%;">
+                <td colspan="2">
+                <div align="center"><font style="font-size:9px; font-family: Verdana">Powered by: Zhichun Xie,if you interest in this project,you can email to <a href="mailto:helocean@gmail.com">helocean@gmail.com</a>.</font></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
