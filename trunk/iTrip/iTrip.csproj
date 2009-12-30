@@ -65,10 +65,10 @@
     <Content Include="Css\indexStyle.css" />
     <Content Include="Default.aspx" />
     <None Include="Global.asax" />
-    <None Include="Service References\ServiceReference1\Service1.wsdl" />
-    <None Include="Service References\ServiceReference1\Service1.disco" />
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
+    <None Include="Service References\iWebServiceReference\iWebService.disco" />
+    <None Include="Service References\iWebServiceReference\configuration.svcinfo" />
+    <None Include="Service References\iWebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -87,7 +87,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\iWebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -120,7 +120,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\iWebServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
