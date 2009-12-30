@@ -17,14 +17,35 @@ namespace iTrip.DAL
     public static class AccessHelper
     {
         //数据库连接字符串
-        public static readonly string conn = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + HttpContext.Current.Request.PhysicalApplicationPath + "{0};Persist Security Info=False;Jet OLEDB:Database Password={1};", new string[]
-            {
-                ConfigurationManager.AppSettings["ConnectionString"].ToString(),
-                ConfigurationManager.AppSettings["Password"].ToString()
-            });
+        private static readonly string conStr = string.Format(
+            "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + HttpContext.Current.Request.PhysicalApplicationPath + "{0};Persist Security Info=False;Jet OLEDB:Database Password={1};", new string[]
+        {
+            ConfigurationManager.AppSettings["ConnectionString"].ToString(),
+            ConfigurationManager.AppSettings["Password"].ToString()
+        });
 
         // 用于缓存参数的HASH表
         private static Hashtable parmCache = Hashtable.Synchronized(new Hashtable());
+        private static OleDbConnection conn;
+        /// <summary>
+        /// 打开数据库连接
+        /// </summary>
+        private static void Open()
+        {
+            // open connection
+            if (conn == null)
+            {
+                conn = new OleDbConnection(conStr);
+                conn.Open();
+            }
+            else
+            {
+                if (conn.State.ToString() == "Closed")
+                {
+                    conn.Open();
+                }
+            }
+        }
 
         /// <summary>
         /// 给定连接的数据库用假设参数执行一个sql命令（不返回数据集）
@@ -35,14 +56,14 @@ namespace iTrip.DAL
         /// <returns>执行命令所影响的行数</returns>
         public static int ExecuteNonQuery(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
         {
+            //打开数据库连接
+            Open();
+
 	        OleDbCommand cmd = new OleDbCommand();
-	        using (OleDbConnection conn = new OleDbConnection(connectionString))
-	        {
-		        PrepareCommand(cmd, conn, null, cmdText, commandParameters);
-		        int val = cmd.ExecuteNonQuery();
-		        cmd.Parameters.Clear();
-		        return val;
-	        }
+	        PrepareCommand(cmd, null, cmdText, commandParameters);
+	        int val = cmd.ExecuteNonQuery();
+	        cmd.Parameters.Clear();
+	        return val;
         }
 
         /// <summary>
@@ -56,10 +77,13 @@ namespace iTrip.DAL
         /// <param name="commandText">存储过程名称或者sql命令语句</param>
         /// <param name="commandParameters">执行命令所用参数的集合</param>
         /// <returns>执行命令所影响的行数</returns>
-        public static int ExecuteNonQuery(OleDbConnection connection, string cmdText, params OleDbParameter[] commandParameters)
+        public static int ExecuteNonQuery(string cmdText, params OleDbParameter[] commandParameters)
         {
+            //打开数据库连接
+            Open();
+
 	        OleDbCommand cmd = new OleDbCommand();
-	        PrepareCommand(cmd, connection, null, cmdText, commandParameters);
+	        PrepareCommand(cmd, null, cmdText, commandParameters);
 	        int val = cmd.ExecuteNonQuery();
 	        cmd.Parameters.Clear();
 	        return val;
@@ -79,7 +103,7 @@ namespace iTrip.DAL
         public static int ExecuteNonQuery(OleDbTransaction trans, string cmdText, params OleDbParameter[] commandParameters)
         {
 	        OleDbCommand cmd = new OleDbCommand();
-	        PrepareCommand(cmd, trans.Connection, trans, cmdText, commandParameters);
+	        PrepareCommand(cmd, trans, cmdText, commandParameters);
 	        int val = cmd.ExecuteNonQuery();
 	        cmd.Parameters.Clear();
 	        return val;
@@ -96,18 +120,20 @@ namespace iTrip.DAL
         /// <param name="commandText">存储过程名称或者sql命令语句</param>
         /// <param name="commandParameters">执行命令所用参数的集合</param>
         /// <returns>包含结果的读取器</returns>
-        public static OleDbDataReader ExecuteReader(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
+        public static OleDbDataReader ExecuteReader(string cmdText, params OleDbParameter[] commandParameters)
         {
+            //打开数据库连接
+            Open();
+
 	        //创建一个SqlCommand对象
 	        OleDbCommand cmd = new OleDbCommand();
-	        //创建一个SqlConnection对象
-	        OleDbConnection conn = new OleDbConnection(connectionString);
+
 	        //在这里我们用一个try/catch结构执行sql文本命令/存储过程，因为如果这个方法产生一个异常我们要关闭连接，因为没有读取器存在，
 	        //因此commandBehaviour.CloseConnection 就不会执行
 	        try
 	        {
 		        //调用 PrepareCommand 方法，对 SqlCommand 对象设置参数
-		        PrepareCommand(cmd, conn, null, cmdText, commandParameters);
+		        PrepareCommand(cmd, null, cmdText, commandParameters);
 		        //调用 SqlCommand 的 ExecuteReader 方法
 		        OleDbDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
 		        //清除参数
@@ -129,31 +155,31 @@ namespace iTrip.DAL
         /// <param name="cmdText">存储过程名称或者sql命令语句</param>
         /// <param name="commandParameters">执行命令所用参数的集合</param>
         /// <returns>包含结果的数据集</returns>
-        public static DataSet ExecuteDataSet(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
+        public static DataSet ExecuteDataSet(string cmdText, params OleDbParameter[] commandParameters)
         {
+            //打开数据库连接
+            Open();
+
 	        //创建一个SqlCommand对象，并对其进行初始化
 	        OleDbCommand cmd = new OleDbCommand();
-	        using (OleDbConnection conn = new OleDbConnection(connectionString))
+	        PrepareCommand(cmd, null, cmdText, commandParameters);
+	        //创建SqlDataAdapter对象以及DataSet
+	        OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+	        DataSet ds = new DataSet();
+	        try
 	        {
-		        PrepareCommand(cmd, conn, null, cmdText, commandParameters);
-		        //创建SqlDataAdapter对象以及DataSet
-		        OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-		        DataSet ds = new DataSet();
-		        try
-		        {
-			        //填充ds
-			        da.Fill(ds);
-			        // 清除cmd的参数集合 
-			        cmd.Parameters.Clear();
-			        //返回ds
-			        return ds;
-		        }
-		        catch
-		        {
-		        //关闭连接，抛出异常
-		        conn.Close();
-		        throw;
-		        }
+		        //填充ds
+		        da.Fill(ds);
+		        // 清除cmd的参数集合 
+		        cmd.Parameters.Clear();
+		        //返回ds
+		        return ds;
+	        }
+	        catch
+	        {
+	        //关闭连接，抛出异常
+	        conn.Close();
+	        throw;
 	        }
         }
 
@@ -168,37 +194,18 @@ namespace iTrip.DAL
         /// <param name="commandText">存储过程名称或者sql命令语句</param>
         /// <param name="commandParameters">执行命令所用参数的集合</param>
         /// <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
-        public static object ExecuteScalar(string connectionString, string cmdText, params OleDbParameter[] commandParameters)
+        public static object ExecuteScalar(string cmdText, params OleDbParameter[] commandParameters)
         {
-	        OleDbCommand cmd = new OleDbCommand();
-	        using (OleDbConnection connection = new OleDbConnection(connectionString))
-	        {
-		        PrepareCommand(cmd, connection, null, cmdText, commandParameters);
-		        object val = cmd.ExecuteScalar();
-		        cmd.Parameters.Clear();
-		        return val;
-	        }
-        }
+            //打开数据库连接
+            Open();
 
-        /// <summary>
-        /// 用指定的数据库连接执行一个命令并返回一个数据集的第一列
-        /// </summary>
-        /// <remarks>
-        /// 例如: 
-        /// Object obj = ExecuteScalar(connString, "PublishOrders", new OleDbParameter("@prodid", 24));
-        /// </remarks>
-        /// <param name="conn">一个存在的数据库连接</param>
-        /// <param name="commandText">存储过程名称或者sql命令语句</param>
-        /// <param name="commandParameters">执行命令所用参数的集合</param>
-        /// <returns>用 Convert.To{Type}把类型转换为想要的 </returns>
-        public static object ExecuteScalar(OleDbConnection connection, string cmdText, params OleDbParameter[] commandParameters)
-        {
 	        OleDbCommand cmd = new OleDbCommand();
-	        PrepareCommand(cmd, connection, null, cmdText, commandParameters);
+	        PrepareCommand(cmd, null, cmdText, commandParameters);
 	        object val = cmd.ExecuteScalar();
 	        cmd.Parameters.Clear();
 	        return val;
         }
+
         /// <summary>
         /// 将参数集合添加到缓存
         /// </summary>
@@ -233,11 +240,10 @@ namespace iTrip.DAL
         /// <param name="trans">Sql事务</param>
         /// <param name="cmdText">命令文本,例如：Select * from Products</param>
         /// <param name="cmdParms">执行命令的参数</param>
-        private static void PrepareCommand(OleDbCommand cmd, OleDbConnection conn, OleDbTransaction trans, string cmdText, OleDbParameter[] cmdParms)
+        private static void PrepareCommand(OleDbCommand cmd, OleDbTransaction trans, string cmdText, OleDbParameter[] cmdParms)
         {
-	        //判断连接的状态。如果是关闭状态，则打开
-	        if (conn.State != ConnectionState.Open)
-	            conn.Open();
+            //打开数据库连接
+            Open();
     	    
             //cmd属性赋值
 	        cmd.Connection = conn;
@@ -260,16 +266,15 @@ namespace iTrip.DAL
         /// </summary>
         /// <param name="strSql">SQL语句</param>
         /// <returns>存在：true；不存在：false</returns>
-        public static bool Exists(OleDbConnection conn, string cmdText)
+        public static bool Exists(string cmdText)
         {
-            //判断连接的状态。如果是关闭状态，则打开
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
+            //打开数据库连接
+            Open();
 
-                OleDbCommand cmd = new OleDbCommand();
+            OleDbCommand cmd = new OleDbCommand();
             try
             {            
-                PrepareCommand(cmd, conn, null, cmdText, null);
+                PrepareCommand(cmd, null, cmdText, null);
 
                 object obj = cmd.ExecuteScalar();
                 if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
@@ -307,16 +312,15 @@ namespace iTrip.DAL
         /// <param name="OracleStatement">SQL 语句</param>
         /// <param name="prams">参数集</param>
         /// <returns>存在：true；不存在：false</returns>
-        public static bool Exists(OleDbConnection conn, string cmdText, params OleDbParameter[] commandParameters)
+        public static bool Exists(string cmdText, params OleDbParameter[] commandParameters)
         {
-            //判断连接的状态。如果是关闭状态，则打开
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
+            //打开数据库连接
+            Open();
            
             OleDbCommand cmd = new OleDbCommand();
             try
             {
-                PrepareCommand(cmd, conn, null, cmdText, commandParameters);
+                PrepareCommand(cmd, null, cmdText, commandParameters);
                 object obj = cmd.ExecuteScalar();
                 if ((Object.Equals(obj, null)) || (Object.Equals(obj, System.DBNull.Value)))
                 {
