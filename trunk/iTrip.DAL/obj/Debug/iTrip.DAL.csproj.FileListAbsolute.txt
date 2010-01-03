@@ -1,0 +1,10 @@
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.WebService\bin\iTrip.DAL.dll
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.WebService\bin\iTrip.DAL.pdb
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.DAL\obj\Debug\iTrip.DAL.dll
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.DAL\obj\Debug\iTrip.DAL.pdb
+E:\workspace\google-svn\iTrip\trunk\iTrip.WebService\bin\iTrip.DAL.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip.WebService\bin\iTrip.DAL.pdb
+E:\workspace\google-svn\iTrip\trunk\iTrip.DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\google-svn\iTrip\trunk\iTrip.DAL\obj\Debug\iTrip.DAL.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip.DAL\obj\Debug\iTrip.DAL.pdb

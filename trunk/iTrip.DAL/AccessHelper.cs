@@ -48,6 +48,62 @@ namespace iTrip.DAL
         }
 
         /// <summary>
+        /// 创建输入参数
+        /// </summary>
+        /// <param name="ParamName">参数名</param>
+        /// <param name="DbType">参数类型</param>
+        /// <param name="Size">参数大小</param>
+        /// <param name="Value">参数值</param>
+        /// <returns>返回新输入参数</returns>
+        public static OleDbParameter MakeInParam(string ParamName, OleDbType DbType, int Size, object Value)
+        {
+            return MakeParam(ParamName, DbType, Size, ParameterDirection.Input, Value);
+        }
+
+        /// <summary>
+        /// 创建输出参数
+        /// </summary>
+        /// <param name="ParamName">参数名</param>
+        /// <param name="DbType">参数类型</param>
+        /// <param name="Size">参数大小</param>
+        /// <returns>返回新输出参数</returns>
+        public static OleDbParameter MakeOutParam(string ParamName, OleDbType DbType, int Size)
+        {
+            return MakeParam(ParamName, DbType, Size, ParameterDirection.Output, null);
+        }
+
+        /// <summary>
+        /// 创建参数
+        /// </summary>
+        /// <param name="ParamName">参数名</param>
+        /// <param name="DbType">参数类型</param>
+        /// <param name="Size">参数大小</param>
+        /// <param name="Direction">参数方向(输入或输出)</param>
+        /// <param name="Value">参数值</param>
+        /// <returns>返回新参数</returns>
+        private static OleDbParameter MakeParam(string ParamName, OleDbType DbType, int Size, ParameterDirection Direction, object Value)
+        {
+            OleDbParameter param;
+
+
+            if (Size > 0)
+                param = new OleDbParameter(ParamName, DbType, Size);
+            else
+                param = new OleDbParameter(ParamName, DbType);
+
+            param.Direction = Direction;
+
+            if (Value == null)
+                param.Value = DBNull.Value;
+
+            if (!(Direction == ParameterDirection.Output) && Value != null)
+                param.Value = Value;
+
+
+            return param;
+        }
+
+        /// <summary>
         /// 给定连接的数据库用假设参数执行一个sql命令（不返回数据集）
         /// </summary>
         /// <param name="connectionString">一个有效的连接字符串</param>
