@@ -10,10 +10,11 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using iTrip.Utility;
 
 namespace iTrip.Main
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Index : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
