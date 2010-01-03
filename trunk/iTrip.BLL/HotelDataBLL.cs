@@ -5,20 +5,20 @@ using System.Collections.Generic;
 namespace iTrip.BLL
 {
     /// <summary>
-    /// 业务逻辑类USER_ACCOUNT 的摘要说明。
+    /// 业务逻辑类HotelDataBLL 的摘要说明。
     /// </summary>
-    public class UsersBLL
+    public class HotelDataBLL
     {
-        private readonly iTrip.DAL.UsersDAL dal = new iTrip.DAL.UsersDAL();
-        public UsersBLL()
+        private readonly iTrip.DAL.HotelDataDAL dal = new iTrip.DAL.HotelDataDAL();
+        public HotelDataBLL()
         { }
         #region  成员方法
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public Entity.USERS ValidateUser(string USER_NAME, string PASSWORD)
+        public DataSet GetHotelList(string userName, string whereStr)
         {
-            return dal.ValidateUser(USER_NAME, PASSWORD);
+            return dal.GetHotelList(userName, whereStr);
         }
         #endregion  成员方法
     }
