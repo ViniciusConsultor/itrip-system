@@ -1,0 +1,10 @@
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.WebService\bin\iTrip.BLL.dll
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.WebService\bin\iTrip.BLL.pdb
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.BLL\obj\Debug\iTrip.BLL.dll
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip.BLL\obj\Debug\iTrip.BLL.pdb
+E:\workspace\google-svn\iTrip\trunk\iTrip.WebService\bin\iTrip.BLL.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip.WebService\bin\iTrip.BLL.pdb
+E:\workspace\google-svn\iTrip\trunk\iTrip.BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\workspace\google-svn\iTrip\trunk\iTrip.BLL\obj\Debug\iTrip.BLL.dll
+E:\workspace\google-svn\iTrip\trunk\iTrip.BLL\obj\Debug\iTrip.BLL.pdb

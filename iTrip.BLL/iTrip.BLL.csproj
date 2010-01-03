@@ -47,11 +47,19 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersBLL.cs" />
+    <Compile Include="FlightDataBLL.cs" />
+    <Compile Include="FlightOrderBLL.cs" />
+    <Compile Include="HotelDataBLL.cs" />
+    <Compile Include="HotelOrderBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iTrip.DAL\iTrip.DAL.csproj">
       <Project>{2A947507-39BC-47F1-8022-0AC5D7010D08}</Project>
       <Name>iTrip.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTrip.Entity\iTrip.Entity.csproj">
+      <Project>{E3520BDB-417D-4D8B-8B23-7214C0352C98}</Project>
+      <Name>iTrip.Entity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
