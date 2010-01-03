@@ -25,5 +25,17 @@ namespace iTrip.WebService
         {
             return iTrip.Singleton.Single.usersBLL.ValidateUser(USER_NAME, PASSWORD);
         }
+
+        [WebMethod]
+        public void AddUser(iTrip.Entity.USERS Entity)
+        {
+            iTrip.Singleton.Single.usersBLL.Add(Entity);
+        }
+
+        [WebMethod]
+        public void UpdateUser(iTrip.Entity.USERS Entity)
+        {
+            iTrip.Singleton.Single.usersBLL.Update(Entity);
+        }
     }
 }

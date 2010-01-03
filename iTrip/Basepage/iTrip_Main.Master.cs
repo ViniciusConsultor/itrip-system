@@ -75,12 +75,17 @@ namespace iTrip.Basepage
             //酒店信息
             if (e.Item.Value.Equals("00001"))
             {
-                Response.Redirect("~/Flight/Flight.aspx", false);
+                Response.Redirect("~/Hotel/Hotel.aspx", false);
             }
             //订单信息
             if (e.Item.Value.Equals("00002"))
             {
                 Response.Redirect("~/OrderInfo/OrderInfo.aspx", false);
+            }
+            //用户信息
+            if (e.Item.Value.Equals("00003"))
+            {
+                Response.Redirect("~/User/UserManage.aspx", false);
             }
             //注销操作
             if (e.Item.Value.Equals("00005"))
