@@ -72,6 +72,12 @@ namespace iTrip
             if (_WebServiceHotel == null)
                 _WebServiceHotel = new iWebServiceReferenceHotel.iWebServiceHotelSoapClient();
         }
+
+        protected void CheckLoginUser()
+        {
+            if (SESSION_USER == null)
+                Response.Redirect(ConfigurationSettings.AppSettings["Login.Page"].ToString(),true);
+        }
         #endregion
 
     }

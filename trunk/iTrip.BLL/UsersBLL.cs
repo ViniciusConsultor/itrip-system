@@ -14,6 +14,22 @@ namespace iTrip.BLL
         { }
         #region  成员方法
         /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public void Add(iTrip.Entity.USERS Entity)
+        {
+            dal.Add(Entity);
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public void Update(iTrip.Entity.USERS Entity)
+        {
+            dal.Update(Entity);
+        }
+
+        /// <summary>
         /// 是否存在该记录
         /// </summary>
         public Entity.USERS ValidateUser(string USER_NAME, string PASSWORD)

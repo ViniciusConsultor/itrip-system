@@ -1,8 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Basepage/iTrip_Main.Master" AutoEventWireup="true" CodeBehind="Hotel.aspx.cs" Inherits="iTrip.Hotel.Hotel" %>
 <%@ Register assembly="YYControls" namespace="YYControls" tagprefix="yyc" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<title>酒店信息查询</title>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <img src="../Resource/res01_attpic_briefaa.JPG" height="100%" style="width: 98%" alt="咨询信息" />
+    <img src="../Resource/jd_033.jpg" height="100%" alt="咨询信息" width="220px" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <table  style="width:100%; height: 348px;">
@@ -22,9 +24,9 @@
 	                <table height="20" width="100%">
 	                <tr>
 	                <td class="td" nowarp>入住日期</td>
-	                <td class="td_left"><asp:TextBox ID="txtCheckIn" runat="server"  CssClass="TextWidth" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM',maxDate:'#F{$dp.$D(\'<%# txtCheckOut.ClientID %>\')}',onpicked:function(){document.getElementById('<%# txtCheckOut.ClientID %>').focus();}})"></asp:TextBox></td>
+	                <td class="td_left"><asp:TextBox ID="txtCheckIn" runat="server"  CssClass="TextWidth Wdate" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'ctl00$ContentPlaceHolder2$txtCheckIn\')}',onpicked:function(){ctl00$ContentPlaceHolder2$txtCheckOut.focus();}})" ></asp:TextBox></td>
 	                <td class="td" nowarp>离店日期</td>
-	                <td class="td_left"><asp:TextBox ID="txtCheckOut" runat="server"  CssClass="TextWidth" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM',minDate:'#F{$dp.$D(\'<%# txtCheckIn.ClientID %>\');}'})"></asp:TextBox></td>
+	                <td class="td_left"><asp:TextBox ID="txtCheckOut" runat="server"  CssClass="TextWidth Wdate" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'ctl00$ContentPlaceHolder2$txtCheckOut\');}'})"></asp:TextBox></td>
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>价格范围 从</td>
@@ -85,7 +87,7 @@
                         <ItemStyle Wrap="False" HorizontalAlign="Center" Width="10%" />
                         </asp:BoundField>
                         
-                        <asp:BoundField DataField="DISCOUNT_FARE" HeaderText="折扣价(RMB)">
+                        <asp:BoundField DataField="DISCOUNT_FARES" HeaderText="折扣价(RMB)">
                         <HeaderStyle Wrap="False" HorizontalAlign="Center" Width="10%" />
                         <ItemStyle Wrap="False" HorizontalAlign="Center" Width="10%" />
                         </asp:BoundField>

@@ -19,6 +19,9 @@ namespace iTrip.Hotel
         private string TableHeight = BasePage.DEFAULT_TABLE_HEIGHT;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //检查用户是否登录
+            CheckLoginUser();
+
             if (!IsPostBack)
             {
                 this.HotelGridView.DataSource = null;

@@ -1,8 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Basepage/iTrip_Main.Master" AutoEventWireup="true" CodeBehind="Flight.aspx.cs" Inherits="iTrip.Flight.Flight" %>
 <%@ Register assembly="YYControls" namespace="YYControls" tagprefix="yyc" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>航班信息查询</title>
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <img src="../Resource/res01_attpic_briefaa.JPG" height="100%" style="width: 98%" alt="咨询信息" />
+    <img src="../Resource/res01_attpic_briefaa.JPG" height="100%" style="width: 220px" alt="咨询信息" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <table  style="width:100%; height: 348px;">

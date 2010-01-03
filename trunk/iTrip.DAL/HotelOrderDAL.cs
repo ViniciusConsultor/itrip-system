@@ -123,7 +123,7 @@ namespace iTrip.DAL
         public DataSet GetOrderHotelList(string userName)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT H.HOTEL_NAME,HO.HOTEL_ORDER_ID,HO.ROOM_ID,HO.CHECK_IN,HO.CHECK_OUT,HO.FARE,HO.CONFIRM_FLAG
+            strSql.Append(@"SELECT H.HOTEL_NAME,HD.ROOM_TYPE,HD.BREAKFAST,HD.BED_TYPE,HD.NET_WORK,HO.HOTEL_ORDER_ID,HO.ROOM_ID,HO.CHECK_IN,HO.CHECK_OUT,HO.FARE,HO.CONFIRM_FLAG
                     FROM HOTEL H,HOTEL_DATA HD,HOTEL_ORDER HO
                     WHERE H.HOTEL_ID=HD.HOTEL_ID AND HD.ROOM_ID=HO.ROOM_ID AND HO.USER_NAME='" + Utils.ReplaceBadSQL(userName) + "'");
             return AccessHelper.ExecuteDataSet(strSql.ToString());

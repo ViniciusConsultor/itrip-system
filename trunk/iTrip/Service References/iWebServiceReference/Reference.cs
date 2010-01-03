@@ -111,6 +111,14 @@ namespace iTrip.iWebServiceReference {
         // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 USER_NAME 以后生成的消息协定未标记为 nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ValidateUser", ReplyAction="*")]
         iTrip.iWebServiceReference.ValidateUserResponse ValidateUser(iTrip.iWebServiceReference.ValidateUserRequest request);
+        
+        // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 Entity 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUser", ReplyAction="*")]
+        iTrip.iWebServiceReference.AddUserResponse AddUser(iTrip.iWebServiceReference.AddUserRequest request);
+        
+        // CODEGEN: 命名空间 http://tempuri.org/ 的元素名称 Entity 以后生成的消息协定未标记为 nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUser", ReplyAction="*")]
+        iTrip.iWebServiceReference.UpdateUserResponse UpdateUser(iTrip.iWebServiceReference.UpdateUserRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -181,6 +189,120 @@ namespace iTrip.iWebServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUser", Namespace="http://tempuri.org/", Order=0)]
+        public iTrip.iWebServiceReference.AddUserRequestBody Body;
+        
+        public AddUserRequest() {
+        }
+        
+        public AddUserRequest(iTrip.iWebServiceReference.AddUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iTrip.iWebServiceReference.USERS Entity;
+        
+        public AddUserRequestBody() {
+        }
+        
+        public AddUserRequestBody(iTrip.iWebServiceReference.USERS Entity) {
+            this.Entity = Entity;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iTrip.iWebServiceReference.AddUserResponseBody Body;
+        
+        public AddUserResponse() {
+        }
+        
+        public AddUserResponse(iTrip.iWebServiceReference.AddUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AddUserResponseBody {
+        
+        public AddUserResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateUserRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateUser", Namespace="http://tempuri.org/", Order=0)]
+        public iTrip.iWebServiceReference.UpdateUserRequestBody Body;
+        
+        public UpdateUserRequest() {
+        }
+        
+        public UpdateUserRequest(iTrip.iWebServiceReference.UpdateUserRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateUserRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public iTrip.iWebServiceReference.USERS Entity;
+        
+        public UpdateUserRequestBody() {
+        }
+        
+        public UpdateUserRequestBody(iTrip.iWebServiceReference.USERS Entity) {
+            this.Entity = Entity;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateUserResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateUserResponse", Namespace="http://tempuri.org/", Order=0)]
+        public iTrip.iWebServiceReference.UpdateUserResponseBody Body;
+        
+        public UpdateUserResponse() {
+        }
+        
+        public UpdateUserResponse(iTrip.iWebServiceReference.UpdateUserResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateUserResponseBody {
+        
+        public UpdateUserResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     public interface iWebServiceSoapChannel : iTrip.iWebServiceReference.iWebServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -220,6 +342,30 @@ namespace iTrip.iWebServiceReference {
             inValue.Body.PASSWORD = PASSWORD;
             iTrip.iWebServiceReference.ValidateUserResponse retVal = ((iTrip.iWebServiceReference.iWebServiceSoap)(this)).ValidateUser(inValue);
             return retVal.Body.ValidateUserResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iTrip.iWebServiceReference.AddUserResponse iTrip.iWebServiceReference.iWebServiceSoap.AddUser(iTrip.iWebServiceReference.AddUserRequest request) {
+            return base.Channel.AddUser(request);
+        }
+        
+        public void AddUser(iTrip.iWebServiceReference.USERS Entity) {
+            iTrip.iWebServiceReference.AddUserRequest inValue = new iTrip.iWebServiceReference.AddUserRequest();
+            inValue.Body = new iTrip.iWebServiceReference.AddUserRequestBody();
+            inValue.Body.Entity = Entity;
+            iTrip.iWebServiceReference.AddUserResponse retVal = ((iTrip.iWebServiceReference.iWebServiceSoap)(this)).AddUser(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        iTrip.iWebServiceReference.UpdateUserResponse iTrip.iWebServiceReference.iWebServiceSoap.UpdateUser(iTrip.iWebServiceReference.UpdateUserRequest request) {
+            return base.Channel.UpdateUser(request);
+        }
+        
+        public void UpdateUser(iTrip.iWebServiceReference.USERS Entity) {
+            iTrip.iWebServiceReference.UpdateUserRequest inValue = new iTrip.iWebServiceReference.UpdateUserRequest();
+            inValue.Body = new iTrip.iWebServiceReference.UpdateUserRequestBody();
+            inValue.Body.Entity = Entity;
+            iTrip.iWebServiceReference.UpdateUserResponse retVal = ((iTrip.iWebServiceReference.iWebServiceSoap)(this)).UpdateUser(inValue);
         }
     }
 }

@@ -82,8 +82,39 @@
     <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
     <Content Include="Flight\Flight.aspx" />
     <Content Include="Hotel\Hotel.aspx" />
+    <Content Include="js\DatePicker\calendar.js" />
+    <Content Include="js\DatePicker\config.js" />
+    <Content Include="js\DatePicker\lang\en.js" />
+    <Content Include="js\DatePicker\lang\zh-cn.js" />
+    <Content Include="js\DatePicker\lang\zh-tw.js" />
+    <Content Include="js\DatePicker\My97DatePicker.htm" />
+    <Content Include="js\DatePicker\readme.txt" />
+    <Content Include="js\DatePicker\skin\datePicker.gif" />
+    <Content Include="js\DatePicker\skin\default\datepicker.css" />
+    <Content Include="js\DatePicker\skin\default\down.jpg" />
+    <Content Include="js\DatePicker\skin\default\left.gif" />
+    <Content Include="js\DatePicker\skin\default\navLeft.gif" />
+    <Content Include="js\DatePicker\skin\default\navRight.gif" />
+    <Content Include="js\DatePicker\skin\default\qs.jpg" />
+    <Content Include="js\DatePicker\skin\default\right.gif" />
+    <Content Include="js\DatePicker\skin\default\up.jpg" />
+    <Content Include="js\DatePicker\skin\WdatePicker.css" />
+    <Content Include="js\DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\DatePicker\skin\whyGreen\down.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\left.gif" />
+    <Content Include="js\DatePicker\skin\whyGreen\navLeft.gif" />
+    <Content Include="js\DatePicker\skin\whyGreen\navRight.gif" />
+    <Content Include="js\DatePicker\skin\whyGreen\other\bg2.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\other\interface.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\qs.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\right.gif" />
+    <Content Include="js\DatePicker\skin\whyGreen\up.jpg" />
+    <Content Include="js\DatePicker\skin\whyGreen\ymbg.jpg" />
+    <Content Include="js\DatePicker\WdatePicker.js" />
     <Content Include="Main\Index.aspx" />
     <Content Include="OrderInfo\OrderInfo.aspx" />
+    <Content Include="Resource\20099517235411.jpg" />
     <Content Include="Resource\5D.swf" />
     <Content Include="Resource\bak.swf" />
     <Content Include="Resource\banner.gif" />
@@ -95,12 +126,11 @@
     <Content Include="Resource\img_page\last.gif" />
     <Content Include="Resource\img_page\next.gif" />
     <Content Include="Resource\img_page\pre.gif" />
+    <Content Include="Resource\jd_033.jpg" />
     <Content Include="Resource\left.jpg" />
     <Content Include="Resource\navgations.png" />
     <Content Include="Resource\res01_attpic_brief.jpg" />
     <Content Include="Resource\res01_attpic_briefaa.JPG" />
-    <Content Include="Resource\topbg.png" />
-    <Content Include="Resource\topbgaa.jpg" />
     <None Include="Service References\iWebServiceReference\iWebService.disco" />
     <None Include="Service References\iWebServiceReference\configuration.svcinfo" />
     <None Include="Service References\iWebServiceReference\Reference.svcmap">
@@ -119,6 +149,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Resource\topbgaa.png" />
+    <Content Include="Resource\user_123.jpg" />
+    <Content Include="User\UserManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +222,13 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\UserManage.aspx.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserManage.aspx.designer.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
