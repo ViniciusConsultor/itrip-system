@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="UrlRewriter, Version=1.0.1495.18710, Culture=neutral" />
+    <Reference Include="YYControls, Version=4.15.3.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Basepage\style.html" />
@@ -66,20 +67,58 @@
     <Content Include="Default.aspx" />
     <Content Include="Basepage\iTrip_Main.Master" />
     <None Include="Global.asax" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.wsdl" />
+    <None Include="Service References\iWebServiceReferenceHotel\iTrip.iWebServiceReferenceHotel.HOTEL_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.wsdl" />
+    <None Include="Service References\iWebServiceReference\iTrip.iWebServiceReference.USERS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
+    <Content Include="Flight\Flight.aspx" />
+    <Content Include="Hotel\Hotel.aspx" />
+    <Content Include="Main\Index.aspx" />
+    <Content Include="OrderInfo\OrderInfo.aspx" />
+    <Content Include="Resource\5D.swf" />
+    <Content Include="Resource\bak.swf" />
+    <Content Include="Resource\banner.gif" />
+    <Content Include="Resource\bg_mainbox091117.png" />
+    <Content Include="Resource\class_ar.gif" />
+    <Content Include="Resource\current_arrow.gif" />
+    <Content Include="Resource\HaoSc32_1324_200525152843734.gif" />
+    <Content Include="Resource\img_page\first.gif" />
+    <Content Include="Resource\img_page\last.gif" />
+    <Content Include="Resource\img_page\next.gif" />
+    <Content Include="Resource\img_page\pre.gif" />
+    <Content Include="Resource\left.jpg" />
+    <Content Include="Resource\navgations.png" />
+    <Content Include="Resource\res01_attpic_brief.jpg" />
+    <Content Include="Resource\res01_attpic_briefaa.JPG" />
+    <Content Include="Resource\topbg.png" />
+    <Content Include="Resource\topbgaa.jpg" />
     <None Include="Service References\iWebServiceReference\iWebService.disco" />
     <None Include="Service References\iWebServiceReference\configuration.svcinfo" />
     <None Include="Service References\iWebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Main\Index.aspx" />
-    <Content Include="Main\Left.aspx" />
-    <Content Include="Main\OrderHotel.aspx" />
-    <Content Include="Resource\bg_mainbox091117.png" />
-    <Content Include="Resource\navgations.png" />
-    <Content Include="Userlogin\Login.aspx" />
-    <Content Include="Userlogin\Logout.aspx" />
+    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.disco" />
+    <None Include="Service References\iWebServiceReferenceFlight\configuration.svcinfo" />
+    <None Include="Service References\iWebServiceReferenceFlight\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.disco" />
+    <None Include="Service References\iWebServiceReferenceHotel\configuration.svcinfo" />
+    <None Include="Service References\iWebServiceReferenceHotel\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +132,9 @@
     <Compile Include="Basepage\iTrip_Main.Master.designer.cs">
       <DependentUpon>iTrip_Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="Basepage\BaseMasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -103,6 +145,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Flight\Flight.aspx.cs">
+      <DependentUpon>Flight.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Flight\Flight.aspx.designer.cs">
+      <DependentUpon>Flight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hotel\Hotel.aspx.cs">
+      <DependentUpon>Hotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hotel\Hotel.aspx.designer.cs">
+      <DependentUpon>Hotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,32 +166,27 @@
     <Compile Include="Main\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\Left.aspx.cs">
-      <DependentUpon>Left.aspx</DependentUpon>
+    <Compile Include="OrderInfo\OrderInfo.aspx.cs">
+      <DependentUpon>OrderInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Main\Left.aspx.designer.cs">
-      <DependentUpon>Left.aspx</DependentUpon>
+    <Compile Include="OrderInfo\OrderInfo.aspx.designer.cs">
+      <DependentUpon>OrderInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Main\OrderHotel.aspx.cs">
-      <DependentUpon>OrderHotel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Service References\iWebServiceReferenceFlight\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Main\OrderHotel.aspx.designer.cs">
-      <DependentUpon>OrderHotel.aspx</DependentUpon>
+    <Compile Include="Service References\iWebServiceReferenceHotel\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\iWebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Userlogin\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Userlogin\Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,19 +195,23 @@
       <DependentUpon>Global.asax.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Userlogin\Login.aspx.resx">
-      <DependentUpon>Login.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Userlogin\Logout.aspx.resx">
-      <DependentUpon>Logout.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iTrip.Helper\iTrip.Helper.csproj">
+      <Project>{0E75051B-F5BE-48EA-8C20-87E35050B162}</Project>
+      <Name>iTrip.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTrip.Utility\iTrip.Utility.csproj">
+      <Project>{03DDD89A-1E54-47CD-8B40-ED8F513B30BF}</Project>
+      <Name>iTrip.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\iWebServiceReferenceFlight\" />
+    <WCFMetadataStorage Include="Service References\iWebServiceReferenceHotel\" />
     <WCFMetadataStorage Include="Service References\iWebServiceReference\" />
   </ItemGroup>
   <ItemGroup>
