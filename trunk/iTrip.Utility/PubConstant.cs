@@ -56,9 +56,10 @@ namespace iTrip.Utility
       
 
         /********************************************************常量********************************************************/
-        //应用ID
-        public static string APP_TYPE_ID_0 = "0";
-
+        //应用用户信息
+        public static string APP_SESSION_USER_OBJECT = "APP_SESSION_USER_OBJECT";
+        public static string SITE_NAVIGATE_MENU_OBJECT = "SITE_NAVIGATE_MENU_OBJECT";
+        public static string CURRENT_NAVIGATE_MENU_ITEM = "CURRENT_NAVIGATE_MENU_ITEM";
         //获取资源代号
         public static int GetField(string tableName,string fieldName)
         {
