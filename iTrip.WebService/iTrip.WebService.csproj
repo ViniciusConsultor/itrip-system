@@ -54,11 +54,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iWebService.asmx" />
+    <Content Include="iWebServiceFlight.asmx" />
+    <Content Include="iWebServiceHotel.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="iWebService.asmx.cs">
       <DependentUpon>iWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iWebServiceFlight.asmx.cs">
+      <DependentUpon>iWebServiceFlight.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iWebServiceHotel.asmx.cs">
+      <DependentUpon>iWebServiceHotel.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +77,10 @@
     <ProjectReference Include="..\iTrip.BLL\iTrip.BLL.csproj">
       <Project>{043216B6-8ECE-4733-AD43-06F49A956D03}</Project>
       <Name>iTrip.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iTrip.Entity\iTrip.Entity.csproj">
+      <Project>{E3520BDB-417D-4D8B-8B23-7214C0352C98}</Project>
+      <Name>iTrip.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\iTrip.Singleton\iTrip.Singleton.csproj">
       <Project>{F4513665-40EA-4CA9-A2F1-84D4F213F902}</Project>

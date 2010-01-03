@@ -21,7 +21,7 @@ namespace iTrip.WebService
     public class iWebService : System.Web.Services.WebService
     {
         [WebMethod]
-        public bool ValidateUser(string USER_NAME, string PASSWORD)
+        public Entity.USERS ValidateUser(string USER_NAME, string PASSWORD)
         {
             return iTrip.Singleton.Single.usersBLL.ValidateUser(USER_NAME, PASSWORD);
         }
