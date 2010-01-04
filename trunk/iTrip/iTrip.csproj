@@ -68,18 +68,10 @@
     <Content Include="Basepage\iTrip_Main.Master" />
     <None Include="Global.asax" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.wsdl" />
-    <None Include="Service References\iWebServiceReferenceHotel\iTrip.iWebServiceReferenceHotel.HOTEL_ORDER.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.wsdl" />
-    <None Include="Service References\iWebServiceReference\iTrip.iWebServiceReference.USERS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
     <Content Include="Flight\Flight.aspx" />
     <Content Include="Hotel\Hotel.aspx" />
     <Content Include="js\DatePicker\calendar.js" />
@@ -131,7 +123,21 @@
     <Content Include="Resource\navgations.png" />
     <Content Include="Resource\res01_attpic_brief.jpg" />
     <Content Include="Resource\res01_attpic_briefaa.JPG" />
+    <Content Include="Resource\topbgaa.png" />
+    <Content Include="Resource\user_123.jpg" />
+    <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.wsdl" />
+    <None Include="Service References\iWebServiceReferenceHotel\iTrip.iWebServiceReferenceHotel.HOTEL_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.wsdl" />
+    <None Include="Service References\iWebServiceReference\iTrip.iWebServiceReference.USERS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\iWebServiceReference\iWebService.disco" />
+    <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
     <None Include="Service References\iWebServiceReference\configuration.svcinfo" />
     <None Include="Service References\iWebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
@@ -149,8 +155,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Resource\topbgaa.png" />
-    <Content Include="Resource\user_123.jpg" />
     <Content Include="User\UserManage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -206,6 +210,12 @@
     <Compile Include="OrderInfo\OrderInfo.aspx.designer.cs">
       <DependentUpon>OrderInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\iWebServiceReferenceFlight\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -221,7 +231,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
