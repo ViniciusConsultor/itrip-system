@@ -53,6 +53,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\iTripDB.mdb">
+    </Content>
     <Content Include="iWebService.asmx" />
     <Content Include="iWebServiceFlight.asmx" />
     <Content Include="iWebServiceHotel.asmx" />
@@ -86,9 +88,6 @@
       <Project>{F4513665-40EA-4CA9-A2F1-84D4F213F902}</Project>
       <Name>iTrip.Singleton</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
