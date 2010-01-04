@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using iTrip.Utility;
+using System.Text;
 
 namespace iTrip.Hotel
 {
@@ -47,7 +48,20 @@ namespace iTrip.Hotel
                 if (!IsValid())
                     return;
 
-                DataSet ds = iWebServiceHotel.GetHotelList(SESSION_USER.USER_NAME, null);
+                StringBuilder whereBuilder = new StringBuilder();
+                if (Utils.IsNotEmpty(this.txtFareFrom.Text) && Utils.isDecimal(this.txtFareFrom.Text))
+                {
+                    whereBuilder.Append(" AND HD.FARE*(1-HD.DISCOUNT) >= '" + decimal.Parse(txtFareFrom.Text) + "' ");
+                }
+                if (Utils.IsNotEmpty(this.txtFareTo.Text) && Utils.isDecimal(this.txtFareTo.Text))
+                {
+                    whereBuilder.Append(" AND HD.FARE*(1-HD.DISCOUNT) <= '" + decimal.Parse(txtFareTo.Text) + "' ");
+                }
+                if (Utils.IsNotEmpty(this.txtHotel.Text))
+                {
+                    whereBuilder.Append(" AND H.HOTEL_NAME LIKE '%" + txtHotel.Text + "%' ");
+                }
+                DataSet ds = iWebServiceHotel.GetHotelList(SESSION_USER.USER_NAME, whereBuilder.ToString());
                 if (ds != null)
                 {
                     dt = ds.Tables[0];

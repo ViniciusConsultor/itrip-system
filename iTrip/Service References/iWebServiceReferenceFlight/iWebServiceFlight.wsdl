@@ -98,6 +98,61 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetFlightCorporationList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFlightCorporationListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlightCorporationListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlightFromList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fromOrTo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlightFromListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlightFromListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAirPortList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAirPortListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAirPortListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="GetFlightListSoapIn">
@@ -136,6 +191,24 @@
   <wsdl:message name="GetOrderFlightListSoapOut">
     <wsdl:part name="parameters" element="tns:GetOrderFlightListResponse" />
   </wsdl:message>
+  <wsdl:message name="GetFlightCorporationListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlightCorporationList" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightCorporationListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlightCorporationListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightFromListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlightFromList" />
+  </wsdl:message>
+  <wsdl:message name="GetFlightFromListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlightFromListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAirPortListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAirPortList" />
+  </wsdl:message>
+  <wsdl:message name="GetAirPortListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAirPortListResponse" />
+  </wsdl:message>
   <wsdl:portType name="iWebServiceFlightSoap">
     <wsdl:operation name="GetFlightList">
       <wsdl:input message="tns:GetFlightListSoapIn" />
@@ -160,6 +233,18 @@
     <wsdl:operation name="GetOrderFlightList">
       <wsdl:input message="tns:GetOrderFlightListSoapIn" />
       <wsdl:output message="tns:GetOrderFlightListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightCorporationList">
+      <wsdl:input message="tns:GetFlightCorporationListSoapIn" />
+      <wsdl:output message="tns:GetFlightCorporationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightFromList">
+      <wsdl:input message="tns:GetFlightFromListSoapIn" />
+      <wsdl:output message="tns:GetFlightFromListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAirPortList">
+      <wsdl:input message="tns:GetAirPortListSoapIn" />
+      <wsdl:output message="tns:GetAirPortListSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="iWebServiceFlightSoap" type="tns:iWebServiceFlightSoap">
@@ -218,6 +303,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetFlightCorporationList">
+      <soap:operation soapAction="http://tempuri.org/GetFlightCorporationList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightFromList">
+      <soap:operation soapAction="http://tempuri.org/GetFlightFromList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirPortList">
+      <soap:operation soapAction="http://tempuri.org/GetAirPortList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="iWebServiceFlightSoap12" type="tns:iWebServiceFlightSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -268,6 +380,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrderFlightList">
       <soap12:operation soapAction="http://tempuri.org/GetOrderFlightList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightCorporationList">
+      <soap12:operation soapAction="http://tempuri.org/GetFlightCorporationList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlightFromList">
+      <soap12:operation soapAction="http://tempuri.org/GetFlightFromList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAirPortList">
+      <soap12:operation soapAction="http://tempuri.org/GetAirPortList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

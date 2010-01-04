@@ -55,5 +55,23 @@ namespace iTrip.WebService
         {
             return iTrip.Singleton.Single.flightOrderBLL.GetOrderFlightList(userName);
         }
+
+        [WebMethod]
+        public DataSet GetFlightCorporationList()
+        {
+            return iTrip.Singleton.Single.flightDataBLL.GetFlightCorporationList();
+        }
+
+        [WebMethod]
+        public DataSet GetFlightFromList(int fromOrTo)
+        {
+            return iTrip.Singleton.Single.flightDataBLL.GetFlightFromList(fromOrTo);
+
+        }
+        [WebMethod]
+        public DataSet GetAirPortList()
+        {
+            return iTrip.Singleton.Single.flightDataBLL.GetAirPortList();
+        }
     }
 }
