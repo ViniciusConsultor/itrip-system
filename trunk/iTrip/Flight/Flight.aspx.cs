@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using iTrip.Utility;
+using System.Text;
 
 namespace iTrip.Flight
 {
@@ -30,6 +31,8 @@ namespace iTrip.Flight
                 //保存当前值
                 TableHeight = FlightGridView.FixRowColumn.TableHeight;
                 ViewState[VIEW_STATE_TABLE_HEIGHT_OBJECT] = TableHeight;
+
+                BindDropDownList();
             }
             else
             {
@@ -44,7 +47,29 @@ namespace iTrip.Flight
             DataTable dt = null;
             try
             {
-                DataSet ds = iWebServiceFlight.GetFlightList(SESSION_USER.USER_NAME, null);
+                StringBuilder whereBuilder = new StringBuilder();
+                if (Utils.IsNotEmpty(this.txtDeliveryCity.Text))
+                {
+                    whereBuilder.Append(" AND FLIGHT_DATA.DELIVERY_TICKET_CITY LIKE '%" + Utils.ReplaceBadSQL(txtDeliveryCity.Text) + "%' ");
+                }
+                if (Utils.IsNotEmpty(this.txtDepartDate.Text) && Utils.isDate(this.txtDepartDate.Text))
+                {
+                    whereBuilder.Append(" AND FORMAT(FLIGHT_DATA.DEPART_DATE,'yyyy-MM-dd') = '" + Utils.ReplaceBadSQL(txtDepartDate.Text) + "' ");
+                }
+                if (Utils.IsNotEmpty(ddlAirLine.SelectedItem.Value))
+                {
+                    whereBuilder.Append(" AND AIRLINE.AIRLINE_NAME='" + Utils.ReplaceBadSQL(ddlAirLine.SelectedItem.Value) + "' ");
+                }
+                if (Utils.IsNotEmpty(this.ddlFromCity.SelectedItem.Value))
+                {
+                    whereBuilder.Append(" AND FLIGHT_DATA.FROM='" + Utils.ReplaceBadSQL(ddlFromCity.SelectedItem.Value) + "' ");
+                }
+                if (Utils.IsNotEmpty(this.ddlToCity.SelectedItem.Value))
+                {
+                    whereBuilder.Append(" AND FLIGHT_DATA.TO='" + Utils.ReplaceBadSQL(ddlToCity.SelectedItem.Value) + "' ");
+                }
+
+                DataSet ds = iWebServiceFlight.GetFlightList(SESSION_USER.USER_NAME, whereBuilder.ToString());
                 if (ds != null)
                 {
                     dt = ds.Tables[0];
@@ -87,6 +112,34 @@ namespace iTrip.Flight
         {
             FlightGridView.PageIndex = e.NewPageIndex;
             ImageButton1_Click(null, null);
+        }
+
+        private void BindDropDownList()
+        {
+            DataSet ds = null;
+            try
+            {
+                //航空公司
+                ds = iWebServiceFlight.GetFlightCorporationList();
+                iTrip.Helper.BindHelper.BindDropDownList(ddlAirLine, ds.Tables[0], "AIRLINE_NAME", "AIRLINE_NAME",true);
+
+                //出发城市
+                ds = iWebServiceFlight.GetFlightFromList(0);
+                iTrip.Helper.BindHelper.BindDropDownList(ddlFromCity, ds.Tables[0], "FLIGHT_FROM", "FLIGHT_FROM", true);
+
+                //到达城市
+                ds = iWebServiceFlight.GetFlightFromList(1);
+                iTrip.Helper.BindHelper.BindDropDownList(ddlToCity, ds.Tables[0], "FLIGHT_TO", "FLIGHT_TO", true);
+
+                //消息框
+                lblInfoMessage.Text = string.Empty;
+                pnl.Visible = false;
+            }
+            catch(Exception ex)
+            {
+                lblInfoMessage.Text = ex.Message;
+                pnl.Visible = true;
+            }
         }
     }
 }

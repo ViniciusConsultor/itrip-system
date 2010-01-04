@@ -24,19 +24,19 @@
 	                <table height="20" width="100%">
 	                <tr>
 	                <td class="td" nowarp>出发城市</td>
-	                <td class="td_left"><asp:TextBox ID="txtPartNumber" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td_left"><asp:DropDownList ID="ddlFromCity" runat="server"  CssClass="TextWidth"></asp:DropDownList></td>
 	                <td class="td" nowarp>到达城市</td>
-	                <td class="td_left"><asp:TextBox ID="txtCustomsItemNumber" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td_left"><asp:DropDownList ID="ddlToCity" runat="server"  CssClass="TextWidth"></asp:DropDownList></td>
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>出发日期</td>
-	                <td class="td_left"><asp:TextBox ID="txtPartCnName" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td_left"><asp:TextBox ID="txtDepartDate" runat="server"  CssClass="TextWidth Wdate" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})"></asp:TextBox></td>
 	                <td class="td" nowarp>送票城市</td>
-	                <td class="td_left"><asp:TextBox ID="txtPartCdnName" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td_left"><asp:TextBox ID="txtDeliveryCity" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>航空公司</td>
-	                <td class="td_left" colspan="3"><asp:TextBox ID="TextBox3" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td_left" colspan="3"><asp:DropDownList ID="ddlAirLine" runat="server"  CssClass="TextWidth"></asp:DropDownList></td>
 	                </tr>
 	                <tr><td colspan="4" align="center">
 	                <div style="padding-top:10px;padding-bottom:5px">

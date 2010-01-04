@@ -2,8 +2,6 @@ E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\bin\iTrip.dll
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\bin\iTrip.pdb
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\ResolveAssemblyReference.cache
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.Global.resources
-E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.UserLogin.Login.resources
-E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.UserLogin.Logout.resources
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.csproj.GenerateResource.Cache
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.dll
 E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\obj\Debug\iTrip.pdb
@@ -16,3 +14,5 @@ E:\workspace\google-svn\iTrip\trunk\iTrip\obj\Debug\iTrip.dll
 E:\workspace\google-svn\iTrip\trunk\iTrip\obj\Debug\iTrip.pdb
 E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Helper.pdb
 E:\workspace\google-svn\iTrip\trunk\iTrip\bin\iTrip.Utility.pdb
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\bin\iTrip.Helper.pdb
+E:\WEB服务期末项目开发\google-svn\iTrip\iTrip\bin\iTrip.Utility.pdb

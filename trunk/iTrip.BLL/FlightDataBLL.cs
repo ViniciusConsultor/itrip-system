@@ -20,6 +20,21 @@ namespace iTrip.BLL
         {
             return dal.GetFlightList(userName,whereStr);
         }
+
+        public DataSet GetFlightCorporationList()
+        {
+            return dal.GetFlightCorporationList();
+        }
+
+        public DataSet GetFlightFromList(int fromOrTo)
+        {
+            return dal.GetFlightFromList(fromOrTo);
+        }
+
+        public DataSet GetAirPortList()
+        {
+            return GetAirPortList();
+        }
         #endregion  成员方法
     }
 }

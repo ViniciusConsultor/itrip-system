@@ -2,6 +2,51 @@
 <%@ Register assembly="YYControls" namespace="YYControls" tagprefix="yyc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <title>酒店信息查询</title>
+<script type="text/javascript">
+function on_KeyPress_Decimal() {
+	var value=event.srcElement.value;
+	var kc=event.keyCode;
+	if(kc<32 || (kc>47 && kc<58) || (kc==45 && value.indexOf("\-")==-1)|| (kc==46 && value.indexOf("\.")==-1)) {
+		return true;
+	}
+	return false;
+}
+
+function on_KeyUp_Decimal(decimalPlaces) 
+{
+    if(decimalPlaces==undefined)
+    {
+        decimalPlaces=0;
+    }
+        
+	var obj=event.srcElement;
+	var value=obj.value;
+	var re=/(\..{2}).+$/;
+
+	if(value.indexOf("\-")>0) {
+		obj.value=value.replace("\-","");
+	} else if(re.test(value)) {
+		obj.value=value.replace(re,"$1");
+	}	
+}
+
+function CheckFieldData(fid) 
+{
+    if(fid.value.trim().length !=0 && (isNaN(Number(fid.value.trim())) || parseFloat(fid.value.trim()) <= parseFloat("0")))
+    {
+        fid.style.backgroundColor="red";
+        fid.focus();
+        fid.select();
+        
+        alert('数据不正确！');
+        return;
+    }
+    else
+    {
+        fid.style.backgroundColor="";
+    }
+}
+</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <img src="../Resource/jd_033.jpg" height="100%" alt="咨询信息" width="220px" />
@@ -30,8 +75,8 @@
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>价格范围 从</td>
-	                <td class="td_left" colspan="3" valign="bottom"><asp:TextBox ID="txtFareFrom" runat="server"  CssClass="TextWidth"></asp:TextBox>
-	                &nbsp;至 <asp:TextBox ID="txtFareTo" runat="server"  CssClass="TextWidth" ></asp:TextBox></td>
+	                <td class="td_left" colspan="3" valign="bottom"><asp:TextBox ID="txtFareFrom" runat="server"  CssClass="TextWidth" onKeyUp="on_KeyUp_Decimal(0)" onKeyPress="return on_KeyPress_Decimal()"></asp:TextBox>
+	                &nbsp;至 <asp:TextBox ID="txtFareTo" runat="server"  CssClass="TextWidth" onKeyUp="on_KeyUp_Decimal(0)" onKeyPress="return on_KeyPress_Decimal()"></asp:TextBox></td>
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>酒店名称</td>
