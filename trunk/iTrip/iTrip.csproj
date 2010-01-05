@@ -64,14 +64,10 @@
   <ItemGroup>
     <Content Include="Basepage\style.html" />
     <Content Include="Css\indexStyle.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Basepage\iTrip_Main.Master" />
     <None Include="Global.asax" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="Default.aspx" />
     <Content Include="Flight\Flight.aspx" />
     <Content Include="Hotel\Hotel.aspx" />
     <Content Include="js\DatePicker\calendar.js" />
@@ -106,6 +102,7 @@
     <Content Include="js\DatePicker\WdatePicker.js" />
     <Content Include="Main\Index.aspx" />
     <Content Include="OrderInfo\OrderInfo.aspx" />
+    <Content Include="Resource\200710291253133753.jpg" />
     <Content Include="Resource\20099517235411.jpg" />
     <Content Include="Resource\5D.swf" />
     <Content Include="Resource\bak.swf" />
@@ -121,8 +118,11 @@
     <Content Include="Resource\jd_033.jpg" />
     <Content Include="Resource\left.jpg" />
     <Content Include="Resource\navgations.png" />
+    <Content Include="Resource\NextStep.gif" />
     <Content Include="Resource\res01_attpic_brief.jpg" />
     <Content Include="Resource\res01_attpic_briefaa.JPG" />
+    <Content Include="Resource\services.jpg" />
+    <Content Include="Resource\slipt_04.gif" />
     <Content Include="Resource\topbgaa.png" />
     <Content Include="Resource\user_123.jpg" />
     <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
@@ -173,8 +173,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -209,11 +209,6 @@
     </Compile>
     <Compile Include="OrderInfo\OrderInfo.aspx.designer.cs">
       <DependentUpon>OrderInfo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\iWebServiceReferenceFlight\Reference.cs">
