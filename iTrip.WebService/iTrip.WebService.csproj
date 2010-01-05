@@ -104,7 +104,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>80</DevelopmentServerPort>
+          <DevelopmentServerPort>8089</DevelopmentServerPort>
           <DevelopmentServerVPath>/iTrip.WebService/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
