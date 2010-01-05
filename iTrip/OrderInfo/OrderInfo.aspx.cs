@@ -47,6 +47,19 @@ namespace iTrip.OrderInfo
                 string view = Convert.ToString(Request.QueryString["view"]);
                 if (Utils.IsNotEmpty(view) && Utils.isInt(view) && int.Parse(view) >= 0 && MultiView1.Views.Count > int.Parse(view))
                 {
+                    int i = 0;
+                    foreach (MenuItem item in Menu2.Items)
+                    {
+                        if (i == int.Parse(view))
+                        {
+                            item.ImageUrl = "~/Resource/class_ar.gif";
+                        }
+                        else
+                        {
+                            item.ImageUrl = "";
+                        }
+                        i++;
+                    }
                     MultiView1.ActiveViewIndex = int.Parse(view);
                 }
                 else
