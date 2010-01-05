@@ -67,18 +67,6 @@
     <Content Include="Basepage\iTrip_Main.Master" />
     <None Include="Global.asax" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.wsdl" />
-    <None Include="Service References\iWebServiceReferenceHotel\iTrip.iWebServiceReferenceHotel.HOTEL_ORDER.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.wsdl" />
-    <None Include="Service References\iWebServiceReference\iTrip.iWebServiceReference.USERS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
     <Content Include="Flight\Flight.aspx" />
     <Content Include="Hotel\Hotel.aspx" />
     <Content Include="index.htm" />
@@ -138,7 +126,19 @@
     <Content Include="Resource\slipt_04.gif" />
     <Content Include="Resource\topbgaa.png" />
     <Content Include="Resource\user_123.jpg" />
+    <None Include="Service References\iWebServiceReferenceFlight\iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.wsdl" />
+    <None Include="Service References\iWebServiceReferenceHotel\iTrip.iWebServiceReferenceHotel.HOTEL_ORDER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.wsdl" />
+    <None Include="Service References\iWebServiceReference\iTrip.iWebServiceReference.USERS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\iWebServiceReference\iWebService.disco" />
+    <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
     <None Include="Service References\iWebServiceReference\configuration.svcinfo" />
     <None Include="Service References\iWebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
