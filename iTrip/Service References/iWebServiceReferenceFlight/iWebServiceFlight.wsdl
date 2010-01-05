@@ -45,6 +45,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="USER_NAME" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="CONFIRM_FLAG" nillable="true" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="FARE" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PERSON_COUNT" nillable="true" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="AddFlightOrder">
@@ -417,10 +418,10 @@
   </wsdl:binding>
   <wsdl:service name="iWebServiceFlight">
     <wsdl:port name="iWebServiceFlightSoap" binding="tns:iWebServiceFlightSoap">
-      <soap:address location="http://localhost:2579/iWebServiceFlight.asmx" />
+      <soap:address location="http://localhost/iTrip.WebService/iWebServiceFlight.asmx" />
     </wsdl:port>
     <wsdl:port name="iWebServiceFlightSoap12" binding="tns:iWebServiceFlightSoap12">
-      <soap12:address location="http://localhost:2579/iWebServiceFlight.asmx" />
+      <soap12:address location="http://localhost/iTrip.WebService/iWebServiceFlight.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

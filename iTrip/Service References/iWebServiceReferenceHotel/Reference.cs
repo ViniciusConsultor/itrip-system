@@ -63,6 +63,8 @@ namespace iTrip.iWebServiceReferenceHotel {
         
         private System.Nullable<int> cONFIRM_FLAGField;
         
+        private System.Nullable<int> pRE_QUANTITYField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public int HOTEL_ORDER_ID {
@@ -144,6 +146,18 @@ namespace iTrip.iWebServiceReferenceHotel {
             set {
                 this.cONFIRM_FLAGField = value;
                 this.RaisePropertyChanged("CONFIRM_FLAG");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public System.Nullable<int> PRE_QUANTITY {
+            get {
+                return this.pRE_QUANTITYField;
+            }
+            set {
+                this.pRE_QUANTITYField = value;
+                this.RaisePropertyChanged("PRE_QUANTITY");
             }
         }
         
