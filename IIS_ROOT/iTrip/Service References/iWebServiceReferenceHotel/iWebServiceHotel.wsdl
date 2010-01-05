@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetHotelList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="whereStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HOTEL_ORDER_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHotelOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHotelOrderResult" type="tns:HOTEL_ORDER" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HOTEL_ORDER">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="HOTEL_ORDER_ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ROOM_ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER_NAME" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CHECK_IN" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CHECK_OUT" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FARE" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CONFIRM_FLAG" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PRE_QUANTITY" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddHotelOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Entity" type="tns:HOTEL_ORDER" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddHotelOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateHotelOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Entity" type="tns:HOTEL_ORDER" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateHotelOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteHotelOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HOTEL_ORDER_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteHotelOrderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetOrderHotelList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderHotelListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderHotelListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHotelListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelList" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHotelOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetHotelOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHotelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddHotelOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddHotelOrder" />
+  </wsdl:message>
+  <wsdl:message name="AddHotelOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddHotelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHotelOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateHotelOrder" />
+  </wsdl:message>
+  <wsdl:message name="UpdateHotelOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateHotelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHotelOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteHotelOrder" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHotelOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteHotelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHotelListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderHotelList" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHotelListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderHotelListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="iWebServiceHotelSoap">
+    <wsdl:operation name="GetHotelList">
+      <wsdl:input message="tns:GetHotelListSoapIn" />
+      <wsdl:output message="tns:GetHotelListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelOrder">
+      <wsdl:input message="tns:GetHotelOrderSoapIn" />
+      <wsdl:output message="tns:GetHotelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddHotelOrder">
+      <wsdl:input message="tns:AddHotelOrderSoapIn" />
+      <wsdl:output message="tns:AddHotelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHotelOrder">
+      <wsdl:input message="tns:UpdateHotelOrderSoapIn" />
+      <wsdl:output message="tns:UpdateHotelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHotelOrder">
+      <wsdl:input message="tns:DeleteHotelOrderSoapIn" />
+      <wsdl:output message="tns:DeleteHotelOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderHotelList">
+      <wsdl:input message="tns:GetOrderHotelListSoapIn" />
+      <wsdl:output message="tns:GetOrderHotelListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="iWebServiceHotelSoap" type="tns:iWebServiceHotelSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotelList">
+      <soap:operation soapAction="http://tempuri.org/GetHotelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelOrder">
+      <soap:operation soapAction="http://tempuri.org/GetHotelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHotelOrder">
+      <soap:operation soapAction="http://tempuri.org/AddHotelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHotelOrder">
+      <soap:operation soapAction="http://tempuri.org/UpdateHotelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHotelOrder">
+      <soap:operation soapAction="http://tempuri.org/DeleteHotelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderHotelList">
+      <soap:operation soapAction="http://tempuri.org/GetOrderHotelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="iWebServiceHotelSoap12" type="tns:iWebServiceHotelSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHotelList">
+      <soap12:operation soapAction="http://tempuri.org/GetHotelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHotelOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetHotelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHotelOrder">
+      <soap12:operation soapAction="http://tempuri.org/AddHotelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHotelOrder">
+      <soap12:operation soapAction="http://tempuri.org/UpdateHotelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHotelOrder">
+      <soap12:operation soapAction="http://tempuri.org/DeleteHotelOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderHotelList">
+      <soap12:operation soapAction="http://tempuri.org/GetOrderHotelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="iWebServiceHotel">
+    <wsdl:port name="iWebServiceHotelSoap" binding="tns:iWebServiceHotelSoap">
+      <soap:address location="http://localhost/iTrip.WebService/iWebServiceHotel.asmx" />
+    </wsdl:port>
+    <wsdl:port name="iWebServiceHotelSoap12" binding="tns:iWebServiceHotelSoap12">
+      <soap12:address location="http://localhost/iTrip.WebService/iWebServiceHotel.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
