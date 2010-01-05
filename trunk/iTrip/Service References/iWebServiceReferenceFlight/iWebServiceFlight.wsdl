@@ -418,10 +418,10 @@
   </wsdl:binding>
   <wsdl:service name="iWebServiceFlight">
     <wsdl:port name="iWebServiceFlightSoap" binding="tns:iWebServiceFlightSoap">
-      <soap:address location="http://localhost/iTrip.WebService/iWebServiceFlight.asmx" />
+      <soap:address location="http://localhost:8089/iTrip.WebService/iWebServiceFlight.asmx" />
     </wsdl:port>
     <wsdl:port name="iWebServiceFlightSoap12" binding="tns:iWebServiceFlightSoap12">
-      <soap12:address location="http://localhost/iTrip.WebService/iWebServiceFlight.asmx" />
+      <soap12:address location="http://localhost:8089/iTrip.WebService/iWebServiceFlight.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

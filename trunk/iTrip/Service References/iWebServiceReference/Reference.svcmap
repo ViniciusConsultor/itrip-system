@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2dd5227b-9be4-4056-88fb-2338b2435b25" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="54c1e697-5c15-4577-b153-638809824850" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -17,11 +17,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:80/iTrip.WebService/iWebService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8089/iTrip.WebService/iWebService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="iWebService.wsdl" MetadataType="Wsdl" ID="b767bdfb-3205-4091-a602-86d0b2c7a8e5" SourceId="1" SourceUrl="http://localhost/iTrip.WebService/iWebService.asmx?wsdl" />
-    <MetadataFile FileName="iWebService.disco" MetadataType="Disco" ID="ffd3af02-edd6-40ec-aa75-943a546cddbb" SourceId="1" SourceUrl="http://localhost/iTrip.WebService/iWebService.asmx?disco" />
+    <MetadataFile FileName="iWebService.disco" MetadataType="Disco" ID="8451fb87-269b-4c73-9455-78d6b4d9eb80" SourceId="1" SourceUrl="http://localhost:8089/iTrip.WebService/iWebService.asmx?disco" />
+    <MetadataFile FileName="iWebService.wsdl" MetadataType="Wsdl" ID="b7ef6e9f-3de1-49f8-956a-96c79fe4e5ce" SourceId="1" SourceUrl="http://localhost:8089/iTrip.WebService/iWebService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />

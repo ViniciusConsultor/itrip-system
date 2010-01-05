@@ -281,10 +281,10 @@
   </wsdl:binding>
   <wsdl:service name="iWebServiceHotel">
     <wsdl:port name="iWebServiceHotelSoap" binding="tns:iWebServiceHotelSoap">
-      <soap:address location="http://localhost/iTrip.WebService/iWebServiceHotel.asmx" />
+      <soap:address location="http://localhost:8089/iTrip.WebService/iWebServiceHotel.asmx" />
     </wsdl:port>
     <wsdl:port name="iWebServiceHotelSoap12" binding="tns:iWebServiceHotelSoap12">
-      <soap12:address location="http://localhost/iTrip.WebService/iWebServiceHotel.asmx" />
+      <soap12:address location="http://localhost:8089/iTrip.WebService/iWebServiceHotel.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
