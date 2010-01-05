@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="iTrip_Main.master.cs" Inherits="iTrip.Basepage.iTrip_Main" %>
+<html>
+<head runat="server">
+    <link id="link1" rel="stylesheet" type="text/css" href="../Css/indexStyle.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="../js/DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+        <div style="text-align:center">
+        <form id="form1" runat="server">
+        <div id="Layer2"
+            style="position:absolute; left:225px; top:0px; width:277px; height:125px; z-index:1">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+                 
+                codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" 
+                style="height: 125px; margin-left: 0px; width: 277px;">
+                <param name="movie" value="../Resource/bak.swf">
+                <param name="quality" value="high">
+	            <param name="wmode" value="transparent">
+                <embed src="../Resource/bak.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="244" height="239"></embed>
+            </object>
+        </div>
+        <div id="Layer1" style="position:absolute; left:500px; top:0px; width:302px; height:94px; z-index:2">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+                codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" 
+                style="height: 125px; width: 296px">
+                <param name="movie" value="../Resource/5D.swf">
+                <param name="quality" value="high">
+                <param name="wmode" value="transparent">
+                <embed src="../Resource/5D.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="381" height="660"></embed>
+            </object>
+         </div>
+        <table border="0" width="780px"> 
+            <tr>
+                <td height="1%" colspan="2"><img width="100%" src="../Resource/topbgaa.png" /></td>
+            </tr>
+            <tr>
+                <td height="1%" colspan="2" align="right">
+                      <asp:Menu ID="Menu1" runat="server" MaximumDynamicDisplayLevels="1" 
+                          Orientation="Horizontal" Font-Bold="True" Font-Size="Larger" Height="1%" 
+                          StaticSubMenuIndent="10px" Width="320px" 
+                          onmenuitemclick="Menu1_MenuItemClick">
+                        <Items>
+                            <asp:MenuItem Text="航班预订" NavigateUrl="" Value="00000" Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="宾馆预订" NavigateUrl=""  Value="00001" Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="订单信息" NavigateUrl=""  Value="00002" Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="个人信息" NavigateUrl=""  Value="00003" Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="注销" NavigateUrl="" Value="00005" Target="_self" ></asp:MenuItem>
+                        </Items> 
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr><td colspan="2" valign="middle" align="left" height="21px" background="../Resource/banner.gif" nowrap><img src="../Resource/class_ar.gif" /><marquee direction="left" behavior="scroll" loop scrollamount="3">最新热点资讯：暂无......</marquee></td>
+            </tr>
+            <tr>
+                <td width="27%" align="left" valign="top">
+                <table width="100%" style="table-layout:fixed">
+                <tr><td valign="top">
+                <asp:Panel ID="UserLoginPanel" runat="server" BackColor="White" Font-Bold="True" 
+                        Font-Overline="False" Font-Size="X-Small" Font-Underline="False" 
+                        GroupingText="用户登录" Height="27%" HorizontalAlign="Left"  Width="100%" 
+                        BorderColor="#CCCCCC" BorderStyle="Double" 
+                        BackImageUrl="~/Resource/left.jpg">
+                        <table border="0">
+                            <tr><td colspan="2" align="left"><hr />
+                                <font color="#708090">
+                                默认用户可采用<br />
+                                用户名：admin<br />
+                                密码&nbsp; ：admin
+                                </font></td></tr>
+                            <tr height="25px">
+                                <td class="td" nowrap>用户名：</td>
+                                <td class="td_left" nowrap>
+                                    <asp:TextBox ID="txtUserName" runat="server" CssClass="TextWidth"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr height="25px">
+                                <td class="td" nowrap>
+                                    密码：</td>
+                                <td class="td_left" nowrap>
+                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="TextWidth"  BackStyle=0
+                                        TextMode="Password"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr height="25px">
+                                <td colspan="2" align="center" nowrap>
+                                    <asp:Button ID="btnLogin" runat="server" CssClass="Button" Text="登 录" 
+                                        onclick="btnLogin_Click" />
+                                    &nbsp;
+                                    <asp:Button ID="btnClear" runat="server" CssClass="Button" Text="清 除" 
+                                        UseSubmitBehavior="False" />
+                                </td>
+                            </tr>
+                            <tr><td colspan="2" height="25px" align="right"><div style="padding-right:18px">忘记密码？</div></td></tr>
+                        </table>
+                    </asp:Panel>
+                    <asp:Panel ID="UserInfoPanel" runat="server" BackColor="White" Font-Bold="True" 
+                        Font-Overline="False" Font-Size="X-Small" Font-Underline="False" 
+                        GroupingText="用户信息" Height="100%" HorizontalAlign="Left" Width="100%" 
+                        BorderColor="#CCCCCC" BorderStyle="Double" Visible="False" 
+                        BackImageUrl="~/Resource/left.jpg">
+                        <table style="width:100%;" border="0">
+                            <tr><td colspan="2"><hr /></td></tr>
+                            <tr height="25px">
+                                <td class="td" nowrap>用户名</td>
+                                <td class="td_left" nowrap>
+                                    <asp:Label ID="lblUserName" runat="server" Text="" CssClass="TextWidth" ></asp:Label>
+                                </td>
+                            </tr>
+                            <tr height="25px">
+                                <td class="td" nowrap>
+                                    上次登录</td>
+                                <td class="td_left" nowrap>
+                                <asp:Label ID="lblLastLoginDate" runat="server" Text="" CssClass="TextWidth" ></asp:Label>
+                                </td>
+                            </tr>
+                            <tr height="25px">
+                                <td class="td" nowrap>
+                                    登录次数</td> 
+                                <td class="td_left" nowrap>
+                                    共登录 
+                                    <asp:Label ID="lblLoginTimes" runat="server" Text="0"></asp:Label>
+                                    &nbsp;次</td>
+                            </tr>
+                            <tr><td colspan="2" height="25px"  align="right"><div style="padding-right:18px"><a style="font-weight:bold;color:Black" href="../User/UserManage.aspx">修改密码 Go</a>...</div></td></tr>
+                        </table>
+                    </asp:Panel>
+                </td></tr>
+                <tr><td style="height:230px;width:28%">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                </td></tr>
+                </table>
+
+                </td>
+                <td valign="top" align="left" background="~/Resource/left.jpg">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    
+                </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr />
+                <div align="center"><font style="font-size:12px; font-family: Verdana">Powered by: 
+                    Zhichun Xie,if you interest in this project,you can email to helocean@gmail.com.</font></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>
+    
+</body>
+</html>

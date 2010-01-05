@@ -1,0 +1,701 @@
+﻿
+
+BODY 
+{     
+  color: #000000; 
+  font-family:  "Verdana", "Arial", "Helvetica", "sans-serif"; 
+  line-height: 100%; 
+  margin-bottom:0px; 
+  margin-left:0px; 
+  margin-right:0px; 
+  margin-top:0px;    
+  background-color:White; 
+  font-size:12px; 
+  padding-left:5px; 
+  padding-top:5px; 
+  height:100%; 
+} 
+
+ A.sort 
+{ 
+    FONT-SIZE: 12px; 
+    COLOR: white; 
+    TEXT-DECORATION: none 
+} 
+
+A:link 
+{ 
+font-size: 12px; 
+color:Black; 
+line-height: 15pt; 
+font-family: 宋体; 
+text-decoration:blink; 
+} 
+
+A:visited 
+{ 
+    FONT-SIZE: 12px; 
+    COLOR: #006699; 
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: underline; 
+} 
+
+A:active 
+{ 
+    FONT-SIZE: 12px; 
+    COLOR: #ff0000; 
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: none; 
+} 
+
+A:hover 
+{ 
+    FONT-SIZE: 12px; 
+    COLOR: #ff0000; 
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: none; 
+} 
+
+A.Linkword:link 
+{ 
+    
+    COLOR: blue; 
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: underline 
+} 
+
+A.Linkword:visited 
+{ 
+    COLOR: blue; 
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: none 
+} 
+
+a.blacknone 
+{ 
+	text-decoration: none;   
+	color: #000000; 
+} 
+
+a.bluenone:link 
+{ 
+	text-decoration: none; 
+	color:Black; 
+} 
+
+a.bluenone:visited 
+{ 
+	text-decoration: none; 
+	color: #0014A0; 
+} 
+
+a.purplenone:link 
+{ 
+	text-decoration: none; 
+	color: #840084; 
+} 
+
+a.purplenone:visited 
+{ 
+	text-decoration: none; 
+	color: #840084; 
+} 
+
+a.whitenone 
+{ 
+	text-decoration: none;   
+	color: #ffffff; 
+} 
+
+a.grey6none 
+{ 
+	text-decoration: none; 
+	color: #666666; 
+} 
+
+a.grey9none 
+{ 
+	text-decoration: none; 
+	color: #999999; 
+} 
+
+a.orangenone 
+{ 
+	text-decoration: none; 
+	color: #cc6600; 
+} 
+
+A.orangenone:visited 
+{ 
+	text-decoration: none; 
+	color: #cc6600; 
+} 
+
+a.orangenone_buynow 
+{ 
+	text-decoration: none; 
+	color: #cc6600; 
+} 
+
+a.orangeline 
+{ 
+ color: #cc6600; 
+} 
+
+a.blue { font-size: 12px; color: #4583D2; text-decoration: none; line-height: 25px}  
+a.blue:link{ font-size: 12px; color: #4583D2; text-decoration: none; line-height: 25px}  
+a.blue:hover{ font-size: 12px; color: #4583D2; text-decoration: none; line-height: 25px} 
+a.blue:visited{ font-size: 12px; color: #4583D2; text-decoration: none; line-height: 25px} 
+
+.a1 
+{ 
+	BACKGROUND-IMAGE:url('../images/title.gif'); 
+	COLOR:#000000; 
+	cursor:pointer; 
+} 
+
+.a2{BACKGROUND-COLOR: #C6C3C6;} 
+.a3{BACKGROUND-COLOR: #FFFFFF;} 
+.a4{BACKGROUND-COLOR: #EFEFEF;} 
+
+
+TABLE 
+{ 
+	FONT-SIZE: 12px; 
+	border-color:White; 
+	border-bottom-color:White; 
+	border-left-color:White; 
+	border-right-color:White; 
+	border-top-color:White; 
+	font-family: "宋体";  
+} 
+
+
+TR 
+{ 
+    FONT-SIZE: 12px 
+} 
+ 
+.td
+{
+  text-align:right;
+  padding-right:5px;
+}
+.td_left
+{
+  text-align :left;
+   padding-left:10px;
+}
+
+TD 
+{ 
+    FONT-SIZE: 12px;
+           
+} 
+
+BUTTON.button 
+{ 
+    FONT-SIZE: 12px; 
+    HEIGHT: 20px; 
+    border-style:outset; 
+    border-width:thick; 
+} 
+
+INPUT 
+{ 
+    FONT-SIZE: 12px; 
+    border-style:groove; 
+    border-width:thin;
+    background:expression((this.disabled && this.disabled==true && this.type=="text")?"#f0f0f0":(this.readOnly && this.readOnly==true && this.type=="text")?"#C2C2C2":this.background);
+} 
+
+FORM 
+{ 
+    padding: 0px;
+	MARGIN: 0px; 
+    height: 300px;
+	width: 780px;
+} 
+
+SELECT 
+{ 
+    FONT-SIZE: 12px 
+} 
+
+TEXTAREA 
+{ 
+    FONT-SIZE: 12px 
+} 
+
+.TextWidth
+{
+	FONT-SIZE: 12px;
+    width:120px;
+}
+
+.TextWidthReadOnly
+{
+	FONT-SIZE: 12px;
+    width:120px; 
+    background-color:#EFEFEF;
+}
+
+.ReadOnlyBG
+{
+    background-color:#EFEFEF;
+}
+
+.TextWidthReadOnly1
+{
+	FONT-SIZE: 12px;
+    width:100px; 
+    background-color:#E0E0E0;
+}
+
+.TextWidth1
+{
+	FONT-SIZE: 12px;
+    width:100px; 
+}
+
+
+.ArticleContent 
+{ 
+FONT-SIZE: 12px; line-height:200% 
+} 
+
+.TabStyle
+{
+	font-family: "宋体";  
+	font-size: 12px;  
+	line-height: 15pt; 
+	font-weight:bold; 
+	color:#66CCFF;  
+}
+
+.white  
+{   
+	font-family: "宋体";  
+	font-size: 12px;  
+	line-height: 15pt;  
+	color: #FFFFFF;  
+	text-decoration: none 
+} 
+
+.black9  
+{   
+	font-family: "宋体";  
+	font-size: 12px;  
+	line-height: 15pt;  
+	color: #000000;  
+	text-decoration: none 
+} 
+
+.gray9  
+{   
+	font-family: "宋体";  
+	font-size: 12px;  
+	line-height: 15pt;  
+	color: gray;  
+	text-decoration: none 
+} 
+
+.black10  
+{   
+	font-family: "宋体";  
+	font-size: 10.5pt;  
+	line-height: 15pt;  
+	color: #000000;  
+	text-decoration: none 
+} 
+
+.caption 
+{ 
+	font-family: verdana, geneva, helvetica, arial, sans-serif;  
+	font-size: 12px;  
+	font-weight: bold; 
+	color: #cc6600; 
+} 
+
+.orangehead  
+{ 
+	font-family:宋体; 
+	font-size:12px; 
+	font-weight:bold; 
+	line-height:20pt; 
+	color: #cc6600; 
+} 
+ 
+
+input.textfeild  
+{  
+	font-size: 12px;  
+	border: #CCCCCC;  
+	border-style: solid;  
+	border-top-width: 1px;  
+	border-right-width: 1px;  
+	border-bottom-width: 1px;  
+	border-left-width: 1px
+} 
+
+
+TEXTAREA.textfeild  
+{  
+	font-size: 12px;  
+	border: #CCCCCC;  
+	border-style: solid;  
+	border-top-width: 1px;  
+	border-right-width: 1px;  
+	border-bottom-width: 1px;  
+	border-left-width: 1px; 
+} 
+
+.TipMsgDiv 
+{ 
+	/*提示信息Div块样式*/ 
+	BORDER-RIGHT:#455690 1px solid;  
+	BORDER-TOP:#a6b4cf 1px solid;  
+	Z-INDEX:99999;  
+	LEFT:0px;  
+	VISIBILITY:hidden;  
+	BORDER-LEFT:#a6b4cf 1px solid; 
+	WIDTH:180px;  
+	BORDER-BOTTOM:#455690 1px solid;  
+	TOP:0px; 
+	HEIGHT:116px; 
+	BACKGROUND-COLOR:#c9d3f3; 
+} 
+
+.TipMsgTbl 
+{ 
+	/*提示信息Table样式*/ 
+	 BORDER-TOP:#ffffff 1px solid; 
+	 BORDER-LEFT:#ffffff 1px solid; 
+ } 
+ 
+.TipMsgTopTd
+ { 
+	/*提示信息上面一行Td样式*/ 
+	 BACKGROUND-IMAGE:url(../images/TipMsgTopBg.gif); 
+	 PADDING-RIGHT:1px; 
+	 PADDING-BOTTOM:1px; 
+	 font-size:12px; 
+ } 
+
+.TipMsgBottomTd 
+{ 
+	/*提示信息Td样式*/ 
+	 BACKGROUND-IMAGE:url(../images/TipMsgBottomBg.jpg); 
+	 PADDING-RIGHT:1px; 
+	 PADDING-BOTTOM:1px; 
+ } 
+
+.TipMsgInfDiv 
+{ 
+	/*提示信息内容Div块样式*/ 
+	BORDER-RIGHT: #b9c9ef 1px solid; 
+	PADDING-RIGHT: 13px; 
+	BORDER-TOP: #728eb8 1px solid; 
+	PADDING-LEFT: 13px; 
+	FONT-SIZE: 12px; 
+	PADDING-BOTTOM: 13px; 
+	BORDER-LEFT: #728eb8 1px solid; 
+	WIDTH: 100%; 
+	HEIGHT: 100%; 
+	COLOR: #1f336b; 
+	PADDING-TOP: 18px; 
+	BORDER-BOTTOM: #b9c9ef 1px solid; 
+} 
+
+.EG_HeaderCSS
+{ 
+	/*DataGrid页眉*/ 
+	background-color: RGB(119,169,201); 
+	font-size: 12px; 
+	font-family:宋体; 
+	color:Black; 
+	font-weight: bold; 
+	height:15px; 
+} 
+
+.EG_ItemCSS
+{ 
+	/*DataGrid奇数行*/ 
+	background-color: RGB(255,255,255); 
+	height:15px; 
+	font-size:12px; 
+	color:#000000; 
+} 
+
+.EG_AlternatingItemCSS
+{ 
+	/*DataGrid偶数行*/ 
+	background-color: #F3F3F3; 
+	height:15px; 
+	font-size:12px; 
+	color:#000000; 
+} 
+
+.EG_FooterCSS
+{ 
+	/*DataGrid最后一行*/ 
+	background-color: #990000; 
+	font-weight: bold; 
+	color: white; 
+	height:20px; 
+	font-size:12px; 
+} 
+
+input,textarea
+{ 
+	background-color: #ffffff; 
+	color: #666666;  
+	font-family: tahoma;  
+	font-size: 12px;  
+	border:solid 1px #666666;  
+} 
+
+.GridAltItem 
+{ 
+    background-color: #e7e9ed; 
+} 
+
+.GridSelectedItem 
+{ 
+    background-color:#FF6633; 
+} 
+
+.GridItem 
+{ 
+	font-size: 12px; 
+	color: #000000; 
+    background-color: #ffffff; 
+    font-family:宋体; 
+} 
+
+.GridHeader 
+{ 
+    font-weight: bold; 
+    font-size: 12px; 
+    color: #ffffff; 
+    background-color: #006699; 
+    font-family:宋体; 
+    text-align: center; 
+    padding: 4px 4px 4px 4px; 
+    border-collapse:collapse;  
+    border-width:1px; 
+} 
+
+.Button 
+{ 
+	font-size: 12px; 
+	color: black; 
+	cursor:hand;
+	font-family:宋体;
+	
+	BORDER-RIGHT: #7b9ebd 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #7b9ebd 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde); BORDER-LEFT: #7b9ebd 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #7b9ebd 1px solid
+
+} 
+
+.PageTitle 
+{ 
+	font-weight: bold; 
+	font-size: 14px; 
+	color: #004080; 
+	font-family:宋体; 
+} 
+
+.PageTitle1 
+
+{ 
+	font-weight: bold; 
+	font-size: 14px; 
+	color:Yellow; 
+	font-family:宋体; 
+} 
+
+.PageTitle3 
+{ 
+	font-weight: bold; 
+	font-size: 14px; 
+	color: #ffffff; 
+	font-family:宋体; 
+} 
+
+.InfoHeader 
+{ 
+	font-weight: bold; 
+	font-size: 14px; 
+	color: #ffffff; 
+	background-color: #004080; 
+	font-family:宋体; 
+} 
+
+.ErrorMsg 
+{ 
+	font-size: 12px; 
+	color:red; 
+	font-family:宋体; 
+} 
+
+.ErrorBlueT 
+{ 
+	font-size: 12px; 
+	color:#004080; 
+	font-family:宋体; 
+} 
+
+.ErrorMsgBg 
+{ 
+	font-size: 12px; 
+	color:red; 
+	font-family:宋体; 
+	font-weight: bold; 
+} 
+
+.MenuWhite 
+{ 
+	font-size: 12px; 
+	color:White; 
+	font-family:宋体; 
+	font-weight: bold; 
+} 
+
+.colorfocus { 
+	border: 1px #0099CC double; 
+	background-color: #FFFF99; 
+	padding:1px 1px 1px 1px; 
+} 
+
+.colorblur { 
+	border: 1px #000000 double; 
+	background-color: #ffffff; 
+} 
+
+.GridViewStyle
+{ 
+    border-right: 1px solid #A7A6AA;
+    border-bottom: 1px solid #A7A6AA;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    padding: 2px;
+    width:100%;
+	margin-top: 0px;
+}
+
+.GridViewHeaderStyle a
+{
+    color:White;
+}
+
+.GridViewHeaderStyle A:visited 
+{ 
+    FONT-SIZE: 12px; 
+    COLOR:White; 
+    font-weight: bold;
+    LINE-HEIGHT: 15pt; 
+    FONT-FAMILY: 宋体; 
+    TEXT-DECORATION: underline; 
+} 
+
+.GridViewHeaderStyle th
+{
+    border-left: 1px solid #EBE9ED;
+    border-right: 1px solid #EBE9ED; 
+	white-space: nowrap 
+}
+
+
+.GridViewHeaderStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewFooterStyle
+{
+    background-color: #5D7B9D;
+    font-weight: bold;
+    color: White;
+}
+
+.GridViewRowStyle
+{
+    background-color: #F7F6F3;
+    color: #333333;
+    height:8px;
+}
+
+.GridViewRowStyle input
+{ 
+    height:12px;
+    border-style:inherit;
+}
+
+
+.GridViewAlternatingRowStyle
+{
+    background-color: #FFFFFF;
+    color: #284775;
+    height:8px;
+}
+
+.GridViewAlternatingRowStyle input
+{
+    height:12px;
+    border-style:inherit;
+}
+.GridViewRowStyle td,.GridViewAlternatingRowStyle td
+{
+    border: 1px solid #EBE9ED;
+    height:6px;
+}
+
+.GridViewSelectedRowStyle
+{
+    background-color: #E2DED6;
+    font-weight: bold;
+    color: #333333;
+}
+
+.GridViewPagerStyle
+{
+    background-color: #284775;
+    color: #FFFFFF;
+}
+
+.GridViewPagerStyle table /**//* to center the paging links*/
+{
+    margin: 0 auto 0 auto;
+}
+
+input[type="checkbox"] 
+{	FONT-SIZE: 12px; 
+    border-style:none; 
+    border-width:inherit; }
+
+.TableAspx
+{
+	width:780px;
+}
+.TableAscx
+{
+	width:770px;
+	text-align:center;
+}
+.NoWrap
+{
+	white-space:nowrap;
+}
+div.ButtonArea
+{
+	margin-top:5px;
+	margin-bottom:5px;
+	text-align:center;
+}
