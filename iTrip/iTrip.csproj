@@ -79,9 +79,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\iWebServiceReference\iWebService.wsdl" />
-    <Content Include="Default.aspx" />
     <Content Include="Flight\Flight.aspx" />
     <Content Include="Hotel\Hotel.aspx" />
+    <Content Include="index.htm" />
+    <Content Include="index.html" />
     <Content Include="js\DatePicker\calendar.js" />
     <Content Include="js\DatePicker\config.js" />
     <Content Include="js\DatePicker\lang\en.js" />
@@ -143,15 +144,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.disco" />
-    <None Include="Service References\iWebServiceReferenceHotel\configuration.svcinfo" />
-    <None Include="Service References\iWebServiceReferenceHotel\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\iWebServiceReferenceFlight\iWebServiceFlight.disco" />
     <None Include="Service References\iWebServiceReferenceFlight\configuration.svcinfo" />
     <None Include="Service References\iWebServiceReferenceFlight\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\iWebServiceReferenceHotel\iWebServiceHotel.disco" />
+    <None Include="Service References\iWebServiceReferenceHotel\configuration.svcinfo" />
+    <None Include="Service References\iWebServiceReferenceHotel\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -171,13 +172,6 @@
     </Compile>
     <Compile Include="Basepage\BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
