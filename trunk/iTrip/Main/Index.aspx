@@ -6,5 +6,5 @@
     <img src="../Resource/services.jpg" height="100%" style="width: 220px" alt="咨询信息" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <table style="height:100%;width:100%;"><tr><td>iTrip......</td></tr></table>
-</asp:Content>
+    <div style="color:Red;font-size:medium; font-weight: bold; font-family:Verdana">欢迎访问iTrip远方旅行网...</div>
+    </asp:Content>
