@@ -48,7 +48,7 @@ function on_KeyUp_Decimal(decimalPlaces)
 	            </asp:panel>
                 <tr>
 	                <td>
-	                <asp:panel id="SearchCondition" Runat="server" GroupingText="酒店查询">
+	                <asp:panel id="SearchCondition" Runat="server" GroupingText="宾馆查询">
 	                <table height="20" width="100%">
 	                <tr>
 	                <td class="td" nowarp>入住日期</td>
@@ -57,7 +57,7 @@ function on_KeyUp_Decimal(decimalPlaces)
 	                <td class="td_left"><asp:TextBox ID="txtCheckOut" runat="server"  CssClass="TextWidth Wdate" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'ctl00$ContentPlaceHolder2$txtCheckOut\');}'})"></asp:TextBox></td>
 	                </tr>
 	                <tr>
-	                <td class="td" nowarp>酒店名称</td>
+	                <td class="td" nowarp>宾馆名称</td>
 	                <td class="td_left"><asp:TextBox ID="txtHotel" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
 	                <td class="td" nowarp>预订数量</td>
 	                <td class="td_left">
@@ -95,7 +95,7 @@ function on_KeyUp_Decimal(decimalPlaces)
     </tr>
     <tr>
         <td colspan="2" align="left" valign="top">
-            <asp:Panel ID="Panel1" runat="server" GroupingText="酒店信息"
+            <asp:Panel ID="Panel1" runat="server" GroupingText="宾馆信息"
                 HorizontalAlign="Left">
             <yyc:SmartGridView ID="HotelGridView" runat="server" Width="100%" 
                     AllowSorting="True" DataKeyNames="ROOM_ID,DISCOUNT_FARES" 
@@ -115,7 +115,7 @@ function on_KeyUp_Decimal(decimalPlaces)
                         <ItemStyle HorizontalAlign="Center" Font-Bold="true" BorderStyle="Double" Wrap="False" Width="8%" />
                         </asp:TemplateField>
                         
-                        <asp:BoundField DataField="HOTEL_NAME" HeaderText="酒店名称">
+                        <asp:BoundField DataField="HOTEL_NAME" HeaderText="宾馆名称">
                         <HeaderStyle Wrap="False" HorizontalAlign="Center" Width="10%" />
                         <ItemStyle Wrap="False" HorizontalAlign="Center" Width="10%" />
                         </asp:BoundField>
@@ -150,7 +150,7 @@ function on_KeyUp_Decimal(decimalPlaces)
                         <EmptyDataTemplate>
                         <tr class="GridViewHeaderStyle">
                         <th nowarp><asp:Label ID="Label9" runat="server" Text="预订"></asp:Label></th>
-                        <th nowarp><asp:Label ID="Label3" runat="server" Text="酒店名称"></asp:Label></th>
+                        <th nowarp><asp:Label ID="Label3" runat="server" Text="宾馆名称"></asp:Label></th>
                         <th nowarp><asp:Label ID="Label10" runat="server" Text="房型"></asp:Label></th>
                         <th nowarp><asp:Label ID="Label4" runat="server" Text="门市价(RMB)"></asp:Label></th>
                         <th nowarp><asp:Label ID="Label5" runat="server" Text="折扣价(RMB)"></asp:Label></th>
