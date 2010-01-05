@@ -18,6 +18,7 @@ namespace iTrip.Flight
     public partial class Flight : BasePage
     {
         private string TableHeight = BasePage.DEFAULT_TABLE_HEIGHT;
+        public static string USER_VIEW_STATE_ALL_FLIGHT_OBJECT = "USER_VIEW_STATE_ALL_FLIGHT_OBJECT";
         protected void Page_Load(object sender, EventArgs e)
         {
             //检查用户是否登录
@@ -73,6 +74,21 @@ namespace iTrip.Flight
                 if (ds != null)
                 {
                     dt = ds.Tables[0];
+
+                    //添加一列到数据表中
+                    DataColumn column = new DataColumn("PERSON_COUNT");
+                    column.DefaultValue = ddlPersonCount.SelectedItem.Value;
+                    dt.Columns.Add(column);
+
+                    //保存当前数据
+                    ViewState[USER_VIEW_STATE_ALL_FLIGHT_OBJECT] = dt;
+                    //克隆当前数据结构到Session中
+                    if (Session[PubConstant.USER_SESSION_FLIGHT_ORDER_OBJECT] == null)
+                    {
+
+                        Session[PubConstant.USER_SESSION_FLIGHT_ORDER_OBJECT] = dt.Clone();
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -94,18 +110,27 @@ namespace iTrip.Flight
         {
             DataKey keys = FlightGridView.DataKeys[FlightGridView.SelectedIndex];
             int flight_id = int.Parse(keys["FLIGHT_ID"].ToString());
-            decimal fare = decimal.Parse(keys["DISCOUNT_FARES"].ToString());
-            iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER FLIGHT_ORDER = new iTrip.iWebServiceReferenceFlight.FLIGHT_ORDER();
-            FLIGHT_ORDER.FLIGHT_ID = flight_id;
-            FLIGHT_ORDER.USER_NAME = SESSION_USER.USER_NAME;
-            FLIGHT_ORDER.FARE = fare;
-            FLIGHT_ORDER.CONFIRM_FLAG = 0;
 
-            //添加
-            iWebServiceFlight.AddFlightOrder(FLIGHT_ORDER);
-
+            if (Session[PubConstant.USER_SESSION_FLIGHT_ORDER_OBJECT] != null)
+            {
+                //获取当前Session中数据源结构
+                DataTable SessionFlightTable = (DataTable)Session[PubConstant.USER_SESSION_FLIGHT_ORDER_OBJECT];
+                DataTable ViewStateFlightTable = (DataTable)ViewState[USER_VIEW_STATE_ALL_FLIGHT_OBJECT];
+                if (ViewStateFlightTable != null)
+                { 
+                    DataRow[] rows = ViewStateFlightTable.Select(" FLIGHT_ID =" + flight_id);
+                    if(rows.Length >0)
+                    {
+                        //将当前选中的数据添加到Session数据表中
+                        SessionFlightTable.ImportRow(rows[0]);
+                        Response.Write(@"<script>if(window.confirm('已成功将该机票添加到机票购物车中，是否现在查看？'))
+                                       {
+                                            location.href='../OrderInfo/OrderInfo.aspx?view=0';
+                                       };</script>");
+                    }
+                }
+            }
             ImageButton1_Click(null, null);
-
         }
 
         protected void FlightGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

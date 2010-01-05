@@ -2,6 +2,62 @@
 <%@ Register assembly="YYControls" namespace="YYControls" tagprefix="yyc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>航班信息查询</title>
+    <style> 
+        .black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color: #FFF5EE; 
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=88); 
+        } 
+        .white_content { 
+            display: none; 
+            position: absolute; 
+            top: 25%; 
+            left: 25%; 
+            width: 55%; 
+            height: 55%; 
+            padding: 20px; 
+            border: 10px solid orange; 
+            background-color: white; 
+            z-index:1002; 
+            overflow: auto; 
+        } 
+    </style> 
+    <script type="text/javascript">
+function on_KeyPress_Decimal() {
+	var value=event.srcElement.value;
+	var kc=event.keyCode;
+	if(kc<32 || (kc>47 && kc<58) || (kc==45 && value.indexOf("\-")==-1)) {
+		return true;
+	}
+	return false;
+}
+
+function on_KeyUp_Decimal(decimalPlaces) 
+{
+    if(decimalPlaces==undefined)
+    {
+        decimalPlaces=0;
+    }
+        
+	var obj=event.srcElement;
+	var value=obj.value;
+	var re=/(\..{0}).+$/;
+
+	if(value.indexOf("\-")>0) {
+		obj.value=value.replace("\-","");
+	} else if(re.test(value)) {
+		obj.value=value.replace(re,"$1");
+	}	
+}
+</script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <img src="../Resource/res01_attpic_briefaa.JPG" height="100%" style="width: 220px" alt="咨询信息" />
@@ -36,7 +92,21 @@
 	                </tr>
 	                <tr>
 	                <td class="td" nowarp>航空公司</td>
-	                <td class="td_left" colspan="3"><asp:DropDownList ID="ddlAirLine" runat="server"  CssClass="TextWidth"></asp:DropDownList></td>
+	                <td class="td_left"><asp:DropDownList ID="ddlAirLine" runat="server"  CssClass="TextWidth"></asp:DropDownList></td>
+	                <td class="td" nowarp>乘客人数</td>
+	                <td class="td_left">
+                        <asp:DropDownList ID="ddlPersonCount" runat="server" CssClass="TextWidth">
+                        <asp:ListItem Value="1" Selected="True">1</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="7">7</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="9">9</asp:ListItem>
+                        </asp:DropDownList>
+                        </td>
 	                </tr>
 	                <tr><td colspan="4" align="center">
 	                <div style="padding-top:10px;padding-bottom:5px">
