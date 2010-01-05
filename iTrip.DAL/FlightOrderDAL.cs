@@ -18,7 +18,7 @@ namespace iTrip.DAL
             iTrip.Entity.FLIGHT_ORDER Entity=null;
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT FLIGHT_ORDER_ID,FLIGHT_ID,USER_NAME,FARE,CONFIRM_FLAG FROM FLIGHT_ORDER WHERE FLIGHT_ORDER_ID=@FLIGHT_ORDER_ID");
+            strSql.Append(@"SELECT FLIGHT_ORDER_ID,FLIGHT_ID,USER_NAME,FARE,CONFIRM_FLAG,PERSON_COUNT FROM FLIGHT_ORDER WHERE FLIGHT_ORDER_ID=@FLIGHT_ORDER_ID");
             OleDbParameter[] parameters =
             {
               AccessHelper.MakeInParam("@FLIGHT_ORDER_ID",OleDbType.Integer,0, FLIGHT_ORDER_ID)
@@ -36,6 +36,8 @@ namespace iTrip.DAL
                     Entity.FARE = decimal.Parse(ds.Tables[0].Rows[0]["FARE"].ToString());
                 if (ds.Tables[0].Rows[0]["CONFIRM_FLAG"] != DBNull.Value)
                     Entity.CONFIRM_FLAG = int.Parse(ds.Tables[0].Rows[0]["CONFIRM_FLAG"].ToString());
+                if (ds.Tables[0].Rows[0]["PERSON_COUNT"] != DBNull.Value)
+                    Entity.PERSON_COUNT = int.Parse(ds.Tables[0].Rows[0]["PERSON_COUNT"].ToString());
             }
 
             return Entity;
@@ -48,15 +50,16 @@ namespace iTrip.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("INSERT INTO FLIGHT_ORDER(");
-            strSql.Append("FLIGHT_ID,USER_NAME,FARE,CONFIRM_FLAG)");
+            strSql.Append("FLIGHT_ID,USER_NAME,FARE,CONFIRM_FLAG,PERSON_COUNT)");
             strSql.Append(" VALUES (");
-            strSql.Append("@FLIGHT_ID,@USER_NAME,@FARE,@CONFIRM_FLAG)");
+            strSql.Append("@FLIGHT_ID,@USER_NAME,@FARE,@CONFIRM_FLAG,@PERSON_COUNT)");
             OleDbParameter[] parameters =
             {
               AccessHelper.MakeInParam("@FLIGHT_ID",OleDbType.VarWChar,0, Entity.FLIGHT_ID),
               AccessHelper.MakeInParam("@USER_NAME",OleDbType.VarWChar,0, Entity.USER_NAME),
               AccessHelper.MakeInParam("@FARE",OleDbType.Decimal,0, Entity.FARE),
-              AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG)
+              AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG),
+              AccessHelper.MakeInParam("@PERSON_COUNT",OleDbType.Integer,0, Entity.PERSON_COUNT)
             };
 
             AccessHelper.ExecuteNonQuery(strSql.ToString(), parameters);
@@ -71,7 +74,8 @@ namespace iTrip.DAL
             strSql.Append("U.FLIGHT_ID = @FLIGHT_ID,");
             strSql.Append("U.USER_NAME = @USER_NAME,");
             strSql.Append("U.FARE = @FARE,");
-            strSql.Append("U.CONFIRM_FLAG = @CONFIRM_FLAG ");
+            strSql.Append("U.CONFIRM_FLAG = @CONFIRM_FLAG, ");
+            strSql.Append("U.PERSON_COUNT = @PERSON_COUNT ");
             strSql.Append(" WHERE U.FLIGHT_ORDER_ID = @FLIGHT_ORDER_ID");
             OleDbParameter[] parameters =
             {
@@ -79,6 +83,7 @@ namespace iTrip.DAL
               AccessHelper.MakeInParam("@USER_NAME",OleDbType.VarWChar,0, Entity.USER_NAME),
               AccessHelper.MakeInParam("@FARE",OleDbType.Decimal,0, Entity.FARE),
               AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG),
+              AccessHelper.MakeInParam("@PERSON_COUNT",OleDbType.Integer,0, Entity.PERSON_COUNT),
               AccessHelper.MakeInParam("@FLIGHT_ORDER_ID",OleDbType.Integer,0, Entity.FLIGHT_ORDER_ID)
             };
             AccessHelper.ExecuteNonQuery(strSql.ToString(), parameters);
@@ -108,7 +113,7 @@ namespace iTrip.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append(@"SELECT AIRLINE.AIRLINE_NAME, FLIGHT_ORDER.FLIGHT_ORDER_ID, FLIGHT_DATA.DEPART_DATE, FLIGHT_DATA.AIR_PORT, FLIGHT_DATA.FROM, FLIGHT_DATA.TO,FLIGHT_ORDER.FARE,
-            FLIGHT_ORDER.CONFIRM_FLAG
+            FLIGHT_ORDER.CONFIRM_FLAG,PERSON_COUNT
             FROM (AIRLINE INNER JOIN FLIGHT_DATA ON AIRLINE.AIRLINE_ID = FLIGHT_DATA.AIRLINE_ID) 
             INNER JOIN FLIGHT_ORDER ON FLIGHT_DATA.FLIGHT_ID = FLIGHT_ORDER.FLIGHT_ID WHERE FLIGHT_ORDER.USER_NAME='" + Utils.ReplaceBadSQL(userName) + "'");
             return AccessHelper.ExecuteDataSet(strSql.ToString());
