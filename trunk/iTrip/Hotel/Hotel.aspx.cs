@@ -18,6 +18,7 @@ namespace iTrip.Hotel
     public partial class Hotel : BasePage
     {
         private string TableHeight = BasePage.DEFAULT_TABLE_HEIGHT;
+        public static string USER_VIEW_STATE_ALL_HOTEL_OBJECT = "USER_VIEW_STATE_ALL_HOTEL_OBJECT";
         protected void Page_Load(object sender, EventArgs e)
         {
             //检查用户是否登录
@@ -67,6 +68,24 @@ namespace iTrip.Hotel
                     dt = ds.Tables[0];
                     hidCheckIn.Value = txtCheckIn.Text;
                     hidCheckOut.Value = txtCheckOut.Text;
+
+                    //添加一列到数据表中
+                    DataColumn columnIn = new DataColumn("CHECK_IN");
+                    columnIn.DefaultValue = txtCheckIn.Text;
+                    dt.Columns.Add(columnIn);
+                    DataColumn columnOut = new DataColumn("CHECK_OUT");
+                    columnOut.DefaultValue = txtCheckIn.Text;
+                    dt.Columns.Add(columnOut);
+
+                    DataColumn column = new DataColumn("PRE_QUANTITY");
+                    column.DefaultValue = ddlRoomCount.SelectedItem.Value;
+                    dt.Columns.Add(column);
+
+                    //保存当前数据
+                    ViewState[USER_VIEW_STATE_ALL_HOTEL_OBJECT] = dt;
+                    //克隆当前数据结构到Session中
+                    if (Session[PubConstant.USER_SESSION_HOTEL_ORDER_OBJECT] == null)
+                        Session[PubConstant.USER_SESSION_HOTEL_ORDER_OBJECT] = dt.Clone();
                 }
                 else
                 {
@@ -93,17 +112,25 @@ namespace iTrip.Hotel
         {
             DataKey keys = HotelGridView.DataKeys[HotelGridView.SelectedIndex];
             int room_id = int.Parse(keys["ROOM_ID"].ToString());
-            decimal fare = decimal.Parse(keys["DISCOUNT_FARES"].ToString());
-            iTrip.iWebServiceReferenceHotel.HOTEL_ORDER HOTEL_ORDER = new iTrip.iWebServiceReferenceHotel.HOTEL_ORDER();
-            HOTEL_ORDER.ROOM_ID = room_id;
-            HOTEL_ORDER.USER_NAME = SESSION_USER.USER_NAME;
-            HOTEL_ORDER.FARE = fare;
-            HOTEL_ORDER.CHECK_IN = Convert.ToDateTime(this.hidCheckIn.Value);
-            HOTEL_ORDER.CHECK_OUT = Convert.ToDateTime(this.hidCheckOut.Value);
-            HOTEL_ORDER.CONFIRM_FLAG = 0;
-
-            //添加
-            iWebServiceHotel.AddHotelOrder(HOTEL_ORDER);
+            if (Session[PubConstant.USER_SESSION_HOTEL_ORDER_OBJECT] != null)
+            {
+                //获取当前Session中数据源结构
+                DataTable SessionHotelTable = (DataTable)Session[PubConstant.USER_SESSION_HOTEL_ORDER_OBJECT];
+                DataTable ViewStateHotelTable = (DataTable)ViewState[USER_VIEW_STATE_ALL_HOTEL_OBJECT];
+                if (ViewStateHotelTable != null)
+                {
+                    DataRow[] rows = ViewStateHotelTable.Select(" ROOM_ID =" + room_id);
+                    if (rows.Length > 0)
+                    {
+                        //将当前选中的数据添加到Session数据表中
+                        SessionHotelTable.ImportRow(rows[0]);
+                        Response.Write(@"<script>if(window.confirm('已成功将该宾馆添加到宾馆购物车中，是否现在查看？'))
+                                       {
+                                            location.href='../OrderInfo/OrderInfo.aspx?view=2';
+                                       };</script>");
+                    }
+                }
+            }
 
             ImageButton1_Click(null, null);
 

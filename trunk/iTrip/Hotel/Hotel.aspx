@@ -29,23 +29,6 @@ function on_KeyUp_Decimal(decimalPlaces)
 		obj.value=value.replace(re,"$1");
 	}	
 }
-
-function CheckFieldData(fid) 
-{
-    if(fid.value.trim().length !=0 && (isNaN(Number(fid.value.trim())) || parseFloat(fid.value.trim()) <= parseFloat("0")))
-    {
-        fid.style.backgroundColor="red";
-        fid.focus();
-        fid.select();
-        
-        alert('数据不正确！');
-        return;
-    }
-    else
-    {
-        fid.style.backgroundColor="";
-    }
-}
 </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -74,13 +57,27 @@ function CheckFieldData(fid)
 	                <td class="td_left"><asp:TextBox ID="txtCheckOut" runat="server"  CssClass="TextWidth Wdate" onfocus="WdatePicker({lang:'auto',dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'ctl00$ContentPlaceHolder2$txtCheckOut\');}'})"></asp:TextBox></td>
 	                </tr>
 	                <tr>
+	                <td class="td" nowarp>酒店名称</td>
+	                <td class="td_left"><asp:TextBox ID="txtHotel" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
+	                <td class="td" nowarp>预订数量</td>
+	                <td class="td_left">
+                        <asp:DropDownList ID="ddlRoomCount" runat="server" CssClass="TextWidth">
+                        <asp:ListItem Value="1" Selected="True">1</asp:ListItem>
+                        <asp:ListItem Value="2">2</asp:ListItem>
+                        <asp:ListItem Value="3">3</asp:ListItem>
+                        <asp:ListItem Value="4">4</asp:ListItem>
+                        <asp:ListItem Value="5">5</asp:ListItem>
+                        <asp:ListItem Value="6">6</asp:ListItem>
+                        <asp:ListItem Value="7">7</asp:ListItem>
+                        <asp:ListItem Value="8">8</asp:ListItem>
+                        <asp:ListItem Value="9">9</asp:ListItem>
+                        </asp:DropDownList>
+                        </td>
+	                </tr>
+	                  <tr>
 	                <td class="td" nowarp>价格范围 从</td>
 	                <td class="td_left" colspan="3" valign="bottom"><asp:TextBox ID="txtFareFrom" runat="server"  CssClass="TextWidth" onKeyUp="on_KeyUp_Decimal(0)" onKeyPress="return on_KeyPress_Decimal()"></asp:TextBox>
 	                &nbsp;至 <asp:TextBox ID="txtFareTo" runat="server"  CssClass="TextWidth" onKeyUp="on_KeyUp_Decimal(0)" onKeyPress="return on_KeyPress_Decimal()"></asp:TextBox></td>
-	                </tr>
-	                <tr>
-	                <td class="td" nowarp>酒店名称</td>
-	                <td class="td_left" colspan="3"><asp:TextBox ID="txtHotel" runat="server"  CssClass="TextWidth"></asp:TextBox></td>
 	                </tr>
 	                <tr><td colspan="4" align="center">
 	                <div style="padding-top:10px;padding-bottom:5px">
