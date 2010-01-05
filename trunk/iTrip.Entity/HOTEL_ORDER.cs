@@ -53,6 +53,12 @@ namespace iTrip.Entity
            get { return _confirm_flag; }
            set { _confirm_flag = value; }
        }
+       private int? _pre_quantity;
+       public int? PRE_QUANTITY
+       {
+           get { return _pre_quantity; }
+           set { _pre_quantity = value; }
+       }
         #endregion Entity
     }
 }

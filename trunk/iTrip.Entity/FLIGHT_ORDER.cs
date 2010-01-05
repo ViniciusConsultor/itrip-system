@@ -45,6 +45,13 @@ namespace iTrip.Entity
            get { return _fare; }
            set { _fare = value; }
        }
+
+       private int? _person_count;
+       public int? PERSON_COUNT
+       {
+           get { return _person_count; }
+           set { _person_count = value; }
+       }
         #endregion Entity
     }
 }
