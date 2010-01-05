@@ -18,7 +18,7 @@ namespace iTrip.DAL
             iTrip.Entity.HOTEL_ORDER Entity = null;
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT HOTEL_ORDER_ID,ROOM_ID,USER_NAME,CHECK_IN,CHECK_OUT,FARE,CONFIRM_FLAG FROM HOTEL_ORDER WHERE HOTEL_ORDER_ID=@HOTEL_ORDER_ID");
+            strSql.Append(@"SELECT HOTEL_ORDER_ID,ROOM_ID,USER_NAME,CHECK_IN,CHECK_OUT,FARE,CONFIRM_FLAG,PRE_QUANTITY FROM HOTEL_ORDER WHERE HOTEL_ORDER_ID=@HOTEL_ORDER_ID");
             OleDbParameter[] parameters =
             {
               AccessHelper.MakeInParam("@HOTEL_ORDER_ID",OleDbType.Integer,0, HOTEL_ORDER_ID)
@@ -42,6 +42,8 @@ namespace iTrip.DAL
                     Entity.FARE = decimal.Parse(ds.Tables[0].Rows[0]["FARE"].ToString());
                 if (ds.Tables[0].Rows[0]["CONFIRM_FLAG"] != DBNull.Value)
                     Entity.CONFIRM_FLAG = int.Parse(ds.Tables[0].Rows[0]["CONFIRM_FLAG"].ToString());
+                if (ds.Tables[0].Rows[0]["PRE_QUANTITY"] != DBNull.Value)
+                    Entity.PRE_QUANTITY = int.Parse(ds.Tables[0].Rows[0]["PRE_QUANTITY"].ToString());
             }
 
             return Entity;
@@ -54,9 +56,9 @@ namespace iTrip.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("INSERT INTO HOTEL_ORDER(");
-            strSql.Append("ROOM_ID,USER_NAME,CHECK_IN,CHECK_OUT,FARE,CONFIRM_FLAG)");
+            strSql.Append("ROOM_ID,USER_NAME,CHECK_IN,CHECK_OUT,FARE,CONFIRM_FLAG,PRE_QUANTITY)");
             strSql.Append(" VALUES (");
-            strSql.Append("@ROOM_ID,@USER_NAME,@CHECK_IN,@CHECK_OUT,@FARE,@CONFIRM_FLAG)");
+            strSql.Append("@ROOM_ID,@USER_NAME,@CHECK_IN,@CHECK_OUT,@FARE,@CONFIRM_FLAG,@PRE_QUANTITY)");
             OleDbParameter[] parameters =
             {
               AccessHelper.MakeInParam("@ROOM_ID",OleDbType.Integer,0, Entity.ROOM_ID),
@@ -65,7 +67,8 @@ namespace iTrip.DAL
               AccessHelper.MakeInParam("@CHECK_OUT",OleDbType.Date,0, Entity.CHECK_OUT),
 
               AccessHelper.MakeInParam("@FARE",OleDbType.Decimal,0, Entity.FARE),
-              AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG)
+              AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG),
+              AccessHelper.MakeInParam("@PRE_QUANTITY",OleDbType.Integer,0, Entity.PRE_QUANTITY)
             };
 
             AccessHelper.ExecuteNonQuery(strSql.ToString(), parameters);
@@ -82,8 +85,8 @@ namespace iTrip.DAL
             strSql.Append("U.CHECK_IN = @CHECK_IN,");
             strSql.Append("U.CHECK_OUT = @CHECK_OUT, ");
             strSql.Append("U.FARE = @FARE, ");
-            strSql.Append("U.CONFIRM_FLAG = @CONFIRM_FLAG ");
-
+            strSql.Append("U.CONFIRM_FLAG = @CONFIRM_FLAG, ");
+            strSql.Append("U.PRE_QUANTITY = @PRE_QUANTITY ");
             strSql.Append(" WHERE U.HOTEL_ORDER_ID = @HOTEL_ORDER_ID");
             OleDbParameter[] parameters =
             {
@@ -94,7 +97,7 @@ namespace iTrip.DAL
 
               AccessHelper.MakeInParam("@FARE",OleDbType.Decimal,0, Entity.FARE),
               AccessHelper.MakeInParam("@CONFIRM_FLAG",OleDbType.Integer,0, Entity.CONFIRM_FLAG),
-
+              AccessHelper.MakeInParam("@PRE_QUANTITY",OleDbType.Integer,0, Entity.PRE_QUANTITY),
               AccessHelper.MakeInParam("@HOTEL_ORDER_ID",OleDbType.Integer,0, Entity.HOTEL_ORDER_ID)
             };
             AccessHelper.ExecuteNonQuery(strSql.ToString(), parameters);
@@ -123,7 +126,7 @@ namespace iTrip.DAL
         public DataSet GetOrderHotelList(string userName)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT H.HOTEL_NAME,HD.ROOM_TYPE,HD.BREAKFAST,HD.BED_TYPE,HD.NET_WORK,HO.HOTEL_ORDER_ID,HO.ROOM_ID,HO.CHECK_IN,HO.CHECK_OUT,HO.FARE,HO.CONFIRM_FLAG
+            strSql.Append(@"SELECT H.HOTEL_NAME,HD.ROOM_TYPE,HD.BREAKFAST,HD.BED_TYPE,HD.NET_WORK,HO.HOTEL_ORDER_ID,HO.ROOM_ID,HO.CHECK_IN,HO.CHECK_OUT,HO.FARE,HO.CONFIRM_FLAG,PRE_QUANTITY
                     FROM HOTEL H,HOTEL_DATA HD,HOTEL_ORDER HO
                     WHERE H.HOTEL_ID=HD.HOTEL_ID AND HD.ROOM_ID=HO.ROOM_ID AND HO.USER_NAME='" + Utils.ReplaceBadSQL(userName) + "'");
             return AccessHelper.ExecuteDataSet(strSql.ToString());
