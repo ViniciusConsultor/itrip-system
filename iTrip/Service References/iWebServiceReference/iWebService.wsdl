@@ -141,10 +141,10 @@
   </wsdl:binding>
   <wsdl:service name="iWebService">
     <wsdl:port name="iWebServiceSoap" binding="tns:iWebServiceSoap">
-      <soap:address location="http://localhost/iTrip.WebService/iWebService.asmx" />
+      <soap:address location="http://localhost:8089/iTrip.WebService/iWebService.asmx" />
     </wsdl:port>
     <wsdl:port name="iWebServiceSoap12" binding="tns:iWebServiceSoap12">
-      <soap12:address location="http://localhost/iTrip.WebService/iWebService.asmx" />
+      <soap12:address location="http://localhost:8089/iTrip.WebService/iWebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
