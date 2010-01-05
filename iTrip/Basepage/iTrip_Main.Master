@@ -43,7 +43,7 @@
                           onmenuitemclick="Menu1_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="航班预订" NavigateUrl="" Value="00000" Target="_self" ></asp:MenuItem>
-                            <asp:MenuItem Text="酒店预订" NavigateUrl=""  Value="00001" Target="_self" ></asp:MenuItem>
+                            <asp:MenuItem Text="宾馆预订" NavigateUrl=""  Value="00001" Target="_self" ></asp:MenuItem>
                             <asp:MenuItem Text="订单信息" NavigateUrl=""  Value="00002" Target="_self" ></asp:MenuItem>
                             <asp:MenuItem Text="个人信息" NavigateUrl=""  Value="00003" Target="_self" ></asp:MenuItem>
                             <asp:MenuItem Text="注销" NavigateUrl="" Value="00005" Target="_self" ></asp:MenuItem>
